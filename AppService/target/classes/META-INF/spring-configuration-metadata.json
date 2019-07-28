@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "app.initializer",
+      "type": "ir.appservice.configuration.initializer.AppInitializer",
+      "sourceType": "ir.appservice.configuration.initializer.AppInitializer"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

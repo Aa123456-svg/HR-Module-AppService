@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+    <p:importConstants type="ir.appservice.model.entity.application.ui.Menu"/>
+
+    <p:dialog id="EDIT_ITEM_DIALOG"
+              header="Editing #{naturalPersonCrudBean.item.displayName}"
+              widgetVar="EDIT_ITEM_DIALOG"
+              modal="true" resizable="false"
+              style="width: auto !important;"
+              closeOnEscape="true"
+              showEffect="puff"
+              hideEffect="explode"
+    >
+        <h:form prependId="false">
+            <h:panelGrid columns="3" cellpadding="50">
+
+                <p:graphicImage
+                        value="#{naturalPersonCrudBean.documentService.streamImage()}"
+                        styleClass="accountAvatar"
+                        style="width: 50px; height: 50px;"
+                >
+                    <f:param name="imageId"
+                             value="#{naturalPersonCrudBean.item.avatar != null?naturalPersonCrudBean.item.avatar.id:-1}"/>
+                </p:graphicImage>
+                <p:outputLabel for="@next" value="Avatar"
+                               rendered="#{naturalPersonCrudBean.item.avatar == null}"/>
+                <p:fileUpload id="EDIT_ITEM_DIALOG_ITEM_AVATAR"
+                              fileUploadListener="#{naturalPersonCrudBean.uploadAvatar}"
+                              mode="advanced"
+                              dragDropSupport="true" auto="false" onstart="showBar()" oncomplete="hideBar()"
+                              multiple="false"
+                              sizeLimit="1000000"
+                              allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                />
+                <p:message for="@previous" display="icon"/>
+
+                <p:outputLabel for="@next" value="First Name"/>
+                <p:inputText id="EDIT_ITEM_DIALOG_ITEM_FIRSTNAME" required="true"
+                             value="#{naturalPersonCrudBean.item.firstName}"/>
+                <p:message for="@previous" display="text"/>
+
+                <p:outputLabel for="@next" value="Last Name"/>
+                <p:inputText id="EDIT_ITEM_DIALOG_ITEM_LASTNAME" required="true"
+                             value="#{naturalPersonCrudBean.item.lastName}"/>
+                <p:message for="@previous" display="text"/>
+
+                <p:outputLabel for="@next" value="Display Name"/>
+                <p:inputText id="EDIT_ITEM_DIALOG_ITEM_DISPLAYNAME" required="true"
+                             value="#{naturalPersonCrudBean.item.displayName}"/>
+                <p:message for="@previous" display="text"/>
+
+                <p:outputLabel for="@next" value="Mobile Number"/>
+                <p:inputText id="EDIT_ITEM_DIALOG_ITEM_MOBILE_NUMBER" required="true"
+                             value="#{naturalPersonCrudBean.item.mobileNumber}"/>
+                <p:message for="@previous" display="text"/>
+
+            </h:panelGrid>
+
+            <hr/>
+
+            <p:commandButton id="EDIT_ITEM_BUTTON"
+                             value="Apply"
+                             action="#{naturalPersonCrudBean.edit}"
+                             title="Apply Edit"
+                             update="@form, ITEMS_LIST"
+            />
+        </h:form>
+    </p:dialog>
+
+</ui:composition>

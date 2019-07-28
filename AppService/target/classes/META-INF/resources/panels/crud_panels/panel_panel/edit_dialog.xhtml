@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+    <p:importConstants type="ir.appservice.model.entity.application.ui.Menu"/>
+
+    <p:dialog id="EDIT_ITEM_DIALOG"
+              header="Editing #{panelCrudBean.item.displayName}"
+              widgetVar="EDIT_ITEM_DIALOG"
+              modal="true" resizable="false"
+              style="width: auto !important;"
+              closeOnEscape="true"
+              showEffect="puff"
+              hideEffect="explode"
+    >
+
+        <h:form prependId="false">
+            <h:panelGrid columns="3" cellpadding="50">
+
+                <p:outputLabel for="@next" value="Display Name"/>
+                <p:inputText id="EDIT_ITEM_DIALOG_ITEM_DISPLAYNAME" required="true"
+                             value="#{panelCrudBean.item.displayName}"/>
+                <p:message for="@previous" display="text"/>
+
+                <p:outputLabel for="@next" value="Resource Location"/>
+                <p:selectOneMenu id="EDIT_ITEM_DIALOG_ITEM_RESOURCE_LOCATION"
+                                 value="#{panelCrudBean.item.resourceLocation}"
+                                 required="true"
+                                 label="Resource"
+                                 effect="fade"
+                                 filter="true"
+                                 filterMatchMode="contains"
+                >
+                    <f:selectItems value="#{panelCrudBean.resources.keySet().toArray()}"/>
+                </p:selectOneMenu>
+                <p:message for="@previous" display="text"/>
+
+            </h:panelGrid>
+
+            <hr/>
+
+            <p:commandButton id="EDIT_ITEM_BUTTON"
+                             value="Apply"
+                             action="#{panelCrudBean.edit}"
+                             title="Apply Edit"
+                             update="@form, ITEMS_LIST"
+            />
+        </h:form>
+    </p:dialog>
+
+</ui:composition>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+>
+
+    <h:form prependId="false">
+        <p:dataTable id="ITEMS_LIST"
+                     styleClass="no-border"
+                     var="item"
+                     widgetVar="ITEMS_LIST"
+                     draggableRows="false"
+                     draggableColumns="true"
+                     paginator="true"
+                     paginatorPosition="bottom"
+                     sortMode="multiple"
+                     value="#{roleCrudBean.items}"
+                     rows="#{roleCrudBean.rowsPerPage}"
+                     stickyHeader="#{roleCrudBean.clazz.simpleName} List"
+                     filteredValue="#{roleCrudBean.filteredItems}"
+        >
+
+            <f:facet name="header">
+                <div class="ui-g ui-fluid text-bold">
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">
+                            <p:commandLink id="OPEN_ADD_DIALOG" value="Add"
+                                           action="#{roleCrudBean.newInstance}"
+                                           styleClass="btn btn-primary"
+                                           oncomplete="PF('ADD_ITEM_DIALOG').show()"
+                                           update="ADD_ITEM_DIALOG"
+                            />
+                            <p:inputText id="globalFilter" onkeyup="PF('ITEMS_LIST').filter()" style="width:150px"
+                                         placeholder="Search"/>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-4">
+                    </div>
+                    <div class="ui-g-12 ui-md-4">
+                        <p:commandLink id="ITEM_LIST_TOGGLER">
+                            <i class="glyphicon glyphicon-align-justify"/>
+                            <span>Columns</span>
+                        </p:commandLink>
+                        <p:columnToggler datasource="ITEMS_LIST" trigger="ITEM_LIST_TOGGLER"/>
+                    </div>
+                </div>
+                <hr/>
+            </f:facet>
+
+            <p:column headerText="Available Actions" width="150">
+                <p:commandLink id="VIEW_ITEM" title="View" action="#{roleCrudBean.load(item.id)}"
+                               oncomplete="PF('VIEW_ITEM_DIALOG').show()"
+                               rendered="#{item.deleteDate == null}"
+                               styleClass="btn btn-outline-warning fa fa-eye"
+                               update="VIEW_ITEM_DIALOG"
+                />
+
+                <p:commandLink id="EDIT_ITEM" title="Edit" action="#{roleCrudBean.load(item.id)}"
+                               oncomplete="PF('EDIT_ITEM_DIALOG').show()"
+                               rendered="#{item.deleteDate == null}"
+                               styleClass="btn btn-outline-warning fa fa-edit"
+                               update="EDIT_ITEM_DIALOG"
+                />
+
+                <p:commandLink id="REMOVE_ITEM" title="Remove" action="#{roleCrudBean.remove(item.id)}"
+                               rendered="#{item.deleteDate == null}"
+                               styleClass="btn btn-outline-danger fa fa-remove"
+                               update="ITEMS_LIST"
+                />
+            </p:column>
+
+            <p:column headerText="ID" sortBy="#{item.id}" filterBy="#{item.id}" filterMatchMode="contains" width="100">
+                <h:outputText value="#{item.id}"/>
+            </p:column>
+
+            <p:column headerText="Display Name" sortBy="#{item.displayName}" filterBy="#{item.displayName}"
+                      filterStyleClass=""
+                      filterMatchMode="contains">
+                <h:outputText value="#{item.displayName}"/>
+            </p:column>
+
+            <p:column headerText="Registered Date" sortBy="#{item.registeredDate}" visible="false">
+                <h:outputText value="#{item.registeredDate}"/>
+            </p:column>
+
+            <p:column headerText="Update Date" sortBy="#{item.updatedDate}" visible="false">
+                <h:outputText value="#{item.updatedDate}"/>
+            </p:column>
+
+        </p:dataTable>
+
+    </h:form>
+
+    <ui:include src="add_dialog.xhtml"/>
+    <ui:include src="edit_dialog.xhtml"/>
+    <ui:include src="view_dialog.xhtml"/>
+
+    <f:facet name="Options">
+        <p:menu>
+            <p:submenu label="Settings">
+                <p:menuitem title="Toggle" url="#" icon="ui-icon-newwin" onclick="PF('panel').toggle()"/>
+                <p:menuitem title="Remove" url="#" icon="ui-icon-close" onclick="PF('panel').close()"/>
+            </p:submenu>
+        </p:menu>
+    </f:facet>
+
+</ui:composition>

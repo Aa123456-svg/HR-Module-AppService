@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+>
+
+    <p:dialog id="VIEW_ITEM_DIALOG"
+              header="#{menuCrudBean.item.displayName}"
+              widgetVar="VIEW_ITEM_DIALOG"
+              modal="true" resizable="false"
+              style="width: auto !important;"
+              closeOnEscape="true"
+              showEffect="slide"
+              hideEffect="fold"
+    >
+
+        <div class="row">
+            <div class="col-md-12">
+                <dl>
+                    <dt>Display Name</dt>
+                    <dd>#{menuCrudBean.item.displayName}</dd>
+
+                    <hr/>
+                    <dt>Panel</dt>
+                    <dd>#{menuCrudBean.item.panel.displayName}</dd>
+
+                    <hr/>
+                    <dt>Type</dt>
+                    <dd>#{menuCrudBean.item.type}</dd>
+
+                    <hr/>
+                    <dt>Icon</dt>
+                    <dd><i class="#{menuCrudBean.item.icon}"/></dd>
+
+                    <hr/>
+                    <dt>Parent</dt>
+                    <dd>#{menuCrudBean.item.parent!=null?menuCrudBean.item.parent.displayName:""}</dd>
+
+                </dl>
+            </div>
+        </div>
+
+    </p:dialog>
+
+</ui:composition>
