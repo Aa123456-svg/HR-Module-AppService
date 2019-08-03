@@ -13,10 +13,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
-//@Component
-//@ConfigurationPropertiesBinding
-public class DocumentConverter implements Converter<String, Document> {
-    protected static final Logger logger = LoggerFactory.getLogger(DocumentConverter.class);
+@Component
+@ConfigurationPropertiesBinding
+public class DocumentFeederConverter implements Converter<String, Document> {
+    protected static final Logger logger = LoggerFactory.getLogger(DocumentFeederConverter.class);
 
     @Override
     public Document convert(String source) {

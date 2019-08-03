@@ -1,6 +1,6 @@
-package ir.appservice.beanComponents.panelBean;
+package ir.appservice.view.beanComponents.panelBean.crudBean;
 
-import ir.appservice.beanComponents.baseBean.BaseCrudBean;
+import ir.appservice.view.beanComponents.baseBean.BaseCrudBean;
 import ir.appservice.model.entity.application.ui.Panel;
 import ir.appservice.model.service.PanelService;
 import lombok.Getter;
@@ -26,11 +26,7 @@ public class PanelCrudBean extends BaseCrudBean<Panel> {
         this.panelService = panelService;
         this.resources = panelService.getPanelsResources();
 
-        init();
-    }
-
-    public void init() {
-        super.init(Panel.class, panelService);
+        init(Panel.class, panelService);
     }
 
     @Override

@@ -2,214 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2825171d-7d05-4784-be09-4828d71d1e4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/configuration/initializer/DocumentConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/AccountConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/DocumentConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/MenuConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/NaturalPersonConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/PanelConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/RoleConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/App Service.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/JSF_2_3_20170117.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/jsf_tutorial.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/Run.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/AuthenticationBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/PanelHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/SessionBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/baseBean/BaseBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/baseBean/BaseCrudBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/elementBean/EditorView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/panelBean/AccountCrudBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/panelBean/DocumentCrudBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/panelBean/MenuCrudBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/panelBean/NaturalPersonCrudBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/panelBean/PanelCrudBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/beanComponents/panelBean/RoleCrudBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/configuration/AppAuthenticationProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/configuration/AppConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/configuration/AppIcons.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/configuration/AppSecurity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/configuration/AppSecurityFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/configuration/initializer/AppInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/configuration/initializer/DocumentConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/controller/BaseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/controller/RestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/entity/BaseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/entity/application/Account.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/entity/application/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/entity/application/ui/Menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/entity/application/ui/Panel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/entity/domain/Document.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/entity/domain/NaturalPerson.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/repository/AccountRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/repository/CrudRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/repository/DocumentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/repository/MenuRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/repository/NaturalPersonRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/repository/PanelRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/repository/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/service/AccountService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/service/CrudService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/service/DocumentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/service/MenuService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/service/NaturalPersonService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/service/PanelService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/service/RoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/java/ir/appservice/model/validator/AuthenticationValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/403.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/404.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/dashboard.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/editor.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/menu_item.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/mini_home_user_detail.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/modal_privacy_tab.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/modal_profile_tab.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/modal_settings.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/modal_signin.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/session_info.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/sidebar_menu.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/top_bar.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/elements/update_session_avatar_modal.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/index.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/configuration_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/account_panel/account_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/account_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/account_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/account_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/document_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/document_panel/document_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/document_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/document_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/menu_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/natural_person_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/natural_person_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/natural_person_panel/natural_person_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/natural_person_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/panel_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/role_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/role_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/role_panel/role_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/crud_panels/role_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/panels/home_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/META-INF/resources/signin.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/font awesome.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/glyphicon list.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/images/userProfileAvatar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/images/userProfileAvatar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/images/userProfileAvatar.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/model.uml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/primefacesIcons.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/main/resources/selection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/src/test/java/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/403.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/404.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/dashboard.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/editor.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/menu_item.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/mini_home_user_detail.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/modal_privacy_tab.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/modal_profile_tab.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/modal_settings.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/modal_signin.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/session_info.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/sidebar_menu.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/top_bar.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/elements/update_session_avatar_modal.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/index.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/configuration_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/account_panel/account_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/account_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/account_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/account_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/document_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/document_panel/document_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/document_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/document_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/menu_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/menu_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/menu_panel/menu_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/menu_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/natural_person_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/natural_person_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/natural_person_panel/natural_person_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/natural_person_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/panel_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/panel_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/panel_panel/panel_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/panel_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/role_panel/add_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/role_panel/edit_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/role_panel/role_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/crud_panels/role_panel/view_dialog.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/panels/home_panel.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/resources/signin.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/font awesome.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/glyphicon list.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/images/userProfileAvatar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/images/userProfileAvatar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/images/userProfileAvatar.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/Run.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/AuthenticationBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/PanelHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/SessionBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/baseBean/BaseBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/baseBean/BaseCrudBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/elementBean/EditorView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/panelBean/AccountCrudBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/panelBean/DocumentCrudBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/panelBean/MenuCrudBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/panelBean/NaturalPersonCrudBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/panelBean/PanelCrudBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/beanComponents/panelBean/RoleCrudBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/configuration/AppAuthenticationProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/configuration/AppConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/configuration/AppIcons$Icon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/configuration/AppIcons.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/configuration/AppSecurity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/configuration/AppSecurityFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/configuration/initializer/AppInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/configuration/initializer/DocumentConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/controller/BaseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/controller/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/controller/RestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/entity/BaseEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/entity/application/Account.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/entity/application/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/entity/application/ui/Menu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/entity/application/ui/Panel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/entity/domain/Document.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/entity/domain/NaturalPerson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/repository/AccountRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/repository/CrudRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/repository/DocumentRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/repository/MenuRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/repository/NaturalPersonRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/repository/PanelRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/repository/RoleRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/service/AccountService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/service/CrudService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/service/DocumentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/service/MenuService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/service/NaturalPersonService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/service/PanelService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/service/RoleService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/ir/appservice/model/validator/AuthenticationValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/model.uml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/primefacesIcons.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/classes/selection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App Service/target/test-classes/Test.class" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/appComponent/AppLazyDataModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/AccountTrashBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/BaseTrashBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/MenuTrashBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/PanelTrashBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/elements/trash_table.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/trash_panel.xhtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/temp.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/AuthenticationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/AuthenticationBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/PanelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/PanelHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/SessionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/SessionBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/baseBean/BaseBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/baseBean/BaseBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/baseBean/BaseCrudBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/baseBean/BaseCrudBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/elementBean/EditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/elementBean/EditorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/AccountCrudBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/crudBean/AccountCrudBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/DocumentCrudBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/crudBean/DocumentCrudBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/MenuCrudBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/crudBean/MenuCrudBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/NaturalPersonCrudBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/crudBean/NaturalPersonCrudBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/PanelCrudBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/crudBean/PanelCrudBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/RoleCrudBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/crudBean/RoleCrudBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/configuration/AppAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/configuration/AppAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/configuration/initializer/DocumentConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/configuration/initializer/DocumentFeederConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/model/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/model/entity/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/model/repository/CrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/model/repository/CrudRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/model/service/CrudService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/model/service/CrudService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ir/appservice/model/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ir/appservice/model/service/MenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/configuration_panel.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/configuration_panel.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/resources/panels/configuration_panel.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/resources/panels/configuration_panel.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -258,7 +83,50 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/trash_panel.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/PanelTrashBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/view/appComponent/AppLazyDataModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/service/CrudService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="782">
+              <caret line="79" column="53" selection-start-line="79" selection-start-column="53" selection-end-line="79" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -266,29 +134,13 @@
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Interface" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>strea</find>
-      <find>stream</find>
-      <find>StreamerBean</find>
-      <find>streame</find>
-      <find>streamImage</find>
-      <find>documentService.streamImage</find>
-      <find>imageId</find>
-      <find>Streaming document</find>
-      <find>roles</find>
-      <find>menuCrudBean</find>
-      <find>PanelCrudBean</find>
-      <find>&lt;h:form</find>
-      <find>lastname</find>
-      <find>panelCrudBean</find>
-      <find>&lt;p:dialog</find>
-      <find>accountCrudBean</find>
-      <find>panel-solid</find>
       <find>panel_container</find>
       <find>globalFilter</find>
       <find>id=&quot;globalFilter&quot;</find>
@@ -302,20 +154,30 @@
       <find>role</find>
       <find>DocumentConverter</find>
       <find>avata</find>
+      <find>&lt;c:for</find>
+      <find>7</find>
+      <find>FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, String.format</find>
+      <find>accountCrudBean</find>
+      <find>REMOVE_ITEM</find>
+      <find>setRowIndex</find>
+      <find>item</find>
+      <find>accountTrashBean</find>
+      <find>menuTrashBean</find>
+      <find>User</find>
+      <find>jpa</find>
+      <find>toS</find>
+      <find>lazy</find>
+      <find>rows</find>
+      <find>trashBean</find>
+      <find>pageSize</find>
+      <find>page</find>
     </findStrings>
     <replaceStrings>
-      <replace>@Inject</replace>
-      <replace>ITEM_LIST</replace>
-      <replace>EDIT_DIALOG</replace>
-      <replace>EDIT_FORM</replace>
-      <replace>VIEW</replace>
-      <replace>:ITEMS_LIST</replace>
       <replace>ITEMS_LIST</replace>
       <replace>ADD_ITEM_DIALOG_</replace>
       <replace>EDIT_ITEM_DIALOG_</replace>
       <replace>VIEW_ITEM_DIALOG_</replace>
       <replace>accountCrudBean</replace>
-      <replace>panelCrudBean</replace>
       <replace>panels/crud_panels/</replace>
       <replace>naturalPersonCrudBean</replace>
       <replace>EDIT_ITEM_DIALOG</replace>
@@ -334,6 +196,13 @@
       <replace>naturalPerson</replace>
       <replace>role</replace>
       <replace>document</replace>
+      <replace>8</replace>
+      <replace>accountTrashBean</replace>
+      <replace>trashBean</replace>
+      <replace>menuTrashBean</replace>
+      <replace>T</replace>
+      <replace>panelCrudBean</replace>
+      <replace>panelTrashBean</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Bahman Heydari Nejad\Desktop\New folder\IranianJoinfaces\src\main\java\ir\appservice</dir>
@@ -355,6 +224,7 @@
       <dir>C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\panels\crud_panels\role_panel</dir>
       <dir>C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources</dir>
       <dir>C:\Users\Bahman Heydari Nejad\Documents\Tecnotree Git\AppService\AppService</dir>
+      <dir>C:\Users\Bahman Heydari Nejad\Documents\GitHub\AppService\AppService\src\main\resources\META-INF\resources</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -365,35 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/role_panel/edit_dialog.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/document_panel/add_dialog.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/AccountCrudBean.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/natural_person_panel/view_dialog.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/document_panel/view_dialog.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/role_panel/view_dialog.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/elements/menu_item.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/dashboard.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/account_panel/view_dialog.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/view_dialog.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/SessionsBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/SessionsBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/SessionBean.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/elements/modal_privacy_tab.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/configuration/AppConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/configuration/AppSecurity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/entity/application/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/service/AccountService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/account_panel/account_panel.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/document_panel/document_panel.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/natural_person_panel/natural_person_panel.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/panel_panel.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/role_panel/role_panel.xhtml" />
-        <option value="$PROJECT_DIR$/src/test/java/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/service/DocumentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/baseBean/BaseCrudBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/entity/application/ui/Menu.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/menu_panel.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/view_dialog.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/edit_dialog.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/edit_dialog.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/add_dialog.xhtml" />
@@ -408,14 +249,43 @@
         <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/converter/NaturalPersonConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/converter/RoleConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/converter/DocumentConverter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/configuration/initializer/DocumentConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/AccountConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/DocumentConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/MenuConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/NaturalPersonConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/PanelConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/RoleConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/elements/sidebar_menu.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/configuration_panel.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/crud/RoleCrudBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/baseBean/BaseBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/TrashBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/BaseTrashBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/crudBean/DocumentCrudBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/crudBean/AccountCrudBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/crudBean/MenuCrudBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/crudBean/NaturalPersonCrudBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/crudBean/PanelCrudBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/crudBean/RoleCrudBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/baseBean/BaseCrudBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/configuration/initializer/DocumentConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/configuration/initializer/DocumentFeederConverter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/trashBean/AccountTrashBean.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/temp.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/temp.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/trashBean/BaseTrashBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/appComponent/appLazyDataModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/appComponent/AppLazyDataModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/MenuTrashBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/repository/CrudRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/entity/BaseEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/elements/trash_table.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/PanelTrashBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/model/service/CrudService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/view/appComponent/AppLazyDataModel.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/trash_panel.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/BaseTrashBean.java" />
       </list>
     </option>
   </component>
@@ -494,6 +364,54 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="appservice" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="appservice" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="appservice" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="appservice" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="appservice" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="appComponent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="appservice" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="beanComponents" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -503,7 +421,9 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="appservice" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="beanComponents" type="462c0819:PsiDirectoryNode" />
+              <item name="panelBean" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
@@ -512,26 +432,10 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="appservice" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="converter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AppService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="appservice" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="validator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AppService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="beanComponents" type="462c0819:PsiDirectoryNode" />
+              <item name="panelBean" type="462c0819:PsiDirectoryNode" />
+              <item name="trashBean" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
@@ -539,14 +443,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AppService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
@@ -593,7 +489,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="panels" type="462c0819:PsiDirectoryNode" />
               <item name="crud_panels" type="462c0819:PsiDirectoryNode" />
-              <item name="menu_panel" type="462c0819:PsiDirectoryNode" />
+              <item name="account_panel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AppService" type="b2602c69:ProjectViewProjectNode" />
@@ -604,7 +500,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="panels" type="462c0819:PsiDirectoryNode" />
               <item name="crud_panels" type="462c0819:PsiDirectoryNode" />
-              <item name="panel_panel" type="462c0819:PsiDirectoryNode" />
+              <item name="menu_panel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -614,6 +510,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -621,7 +518,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/ir/appservice/view" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Tecnotree Git/tecnotree-stuffs/spring-boot-jersey-mongodb" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -641,25 +539,25 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\AppService\AppService\src\main\resources\META-INF\resources\elements" />
+      <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\AppService\AppService\src\main\resources\META-INF\resources\panels\crud_panels" />
       <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\elements" />
       <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\panels\role_panel" />
       <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\panels\panel_panel" />
-      <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\panels\natural_person_panel" />
-      <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\panels\document_panel" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ir.appservice.beanComponents.converter" />
+      <recent name="ir.appservice.view.beanComponents.panelBean.trashBean" />
       <recent name="ir.appservice.beanComponents.panelBean" />
+      <recent name="ir.appservice.beanComponents.converter" />
       <recent name="ir.appservice.beanComponents" />
       <recent name="ir.appservice.model.service" />
-      <recent name="ir.appservice.model.entity.application" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\AppService\AppService\src\main\resources\META-INF\resources\panels" />
       <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\panels\crud_panels\natural_person_panel" />
       <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\panels\crud_panels\role_panel" />
       <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\panels\crud_panels\panel_panel" />
       <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\panels\crud_panels\menu_panel" />
-      <recent name="C:\Users\Bahman Heydari Nejad\Documents\GitHub\App Service\App Service\src\main\resources\META-INF\resources\panels\crud_panels\document_panel" />
     </key>
   </component>
   <component name="RestServicesNavigator">
@@ -760,11 +658,14 @@
       <workItem from="1563790226268" duration="36755000" />
       <workItem from="1564135215762" duration="633000" />
       <workItem from="1564138878487" duration="31650000" />
+      <workItem from="1564291797580" duration="41127000" />
+      <workItem from="1564560409010" duration="12317000" />
+      <workItem from="1564816322734" duration="623000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="725862000" />
+    <option name="totallyTimeSpent" value="779929000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -778,7 +679,7 @@
   <component name="ToolWindowManager">
     <frame x="-1608" y="-552" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.497545" visible="true" weight="0.22750643" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.497545" visible="true" weight="0.2062982" />
       <window_info id="Structure" order="1" sideWeight="0.502455" side_tool="true" weight="0.22768533" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -790,7 +691,7 @@
       <window_info anchor="bottom" id="Duplicates" order="0" weight="0.7675941" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49621785" weight="0.32166892" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4922879" weight="0.58008075" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4922879" weight="0.61865795" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49546143" weight="0.8183306" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -815,7 +716,7 @@
       <window_info anchor="right" id="CDI" order="7" weight="0.32969153" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="10" sideWeight="0.5008183" side_tool="true" weight="0.23136246" />
+      <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="10" sideWeight="0.5008183" side_tool="true" weight="0.28214827" />
       <window_info anchor="right" id="Database" order="11" weight="0.32829046" />
       <window_info anchor="right" id="Bean Validation" order="12" weight="0.32753405" />
       <window_info anchor="right" id="Mongo Explorer" order="13" weight="0.32753405" />
@@ -842,414 +743,529 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/RoleCrudBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/entity/application/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/elements/session_info.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/DocumentCrudBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/service/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/configuration/AppAuthenticationProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/account_panel/account_panel.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="51" column="52" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="64" />
-          <folding>
-            <element signature="n#p:commandLink#2;n#p:column#0;n#p:dataTable#0;n#h:form#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:column#4;n#p:dataTable#0;n#h:form#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:column#5;n#p:dataTable#0;n#h:form#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:column#6;n#p:dataTable#0;n#h:form#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:submenu#0;n#p:menu#0;n#f:facet#0;n#ui:composition#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/document_panel/document_panel.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
-          <folding>
-            <element signature="n#p:column#3;n#p:dataTable#0;n#h:form#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#f:facet#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:menu#0;n#f:facet#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:submenu#0;n#p:menu#0;n#f:facet#0;n#ui:composition#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/natural_person_panel/natural_person_panel.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
-          <folding>
-            <element signature="n#p:column#3;n#p:dataTable#0;n#h:form#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:column#7;n#p:dataTable#0;n#h:form#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#f:facet#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:submenu#0;n#p:menu#0;n#f:facet#0;n#ui:composition#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/role_panel/role_panel.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-          <folding>
-            <element signature="n#p:column#3;n#p:dataTable#0;n#h:form#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#f:facet#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:menu#0;n#f:facet#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:submenu#0;n#p:menu#0;n#f:facet#0;n#ui:composition#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/account_panel/add_dialog.xhtml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-el/9.0.17/tomcat-embed-el-9.0.17-sources.jar!/javax/el/MethodExpression.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="37" column="59" lean-forward="true" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
+          <caret line="37" column="61" lean-forward="true" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_92/src.zip!/java/util/function/Consumer.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.1.6.RELEASE/spring-data-commons-2.1.6.RELEASE-sources.jar!/org/springframework/data/domain/Pageable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        <state relative-caret-position="170">
+          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/service/DocumentService.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2-sources.jar!/org/primefaces/model/SortOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        <state relative-caret-position="68">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Test.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.1.6.RELEASE/spring-data-commons-2.1.6.RELEASE-sources.jar!/org/springframework/data/domain/PageRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        <state relative-caret-position="231">
+          <caret line="94" column="55" lean-forward="true" selection-start-line="94" selection-start-column="55" selection-end-line="94" selection-end-column="55" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2613#2614#0" expanded="true" />
+            <element signature="e#2658#2659#0" expanded="true" />
+            <element signature="e#2956#2957#0" expanded="true" />
+            <element signature="e#3003#3004#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/AccountCrudBean.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2-sources.jar!/org/primefaces/model/SortMeta.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        <state relative-caret-position="85">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.1.6.RELEASE/spring-data-jpa-2.1.6.RELEASE-sources.jar!/org/springframework/data/jpa/domain/JpaSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="334" column="68" selection-start-line="334" selection-start-column="68" selection-end-line="334" selection-end-column="68" />
           <folding>
-            <element signature="e#1007#1008#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
+            <element signature="docComment;class#JpaSort#0" />
+            <element signature="docComment;method#JpaSort#0;class#JpaSort#0" />
+            <element signature="docComment;method#JpaSort#1;class#JpaSort#0" />
+            <element signature="docComment;method#JpaSort#2;class#JpaSort#0" />
+            <element signature="docComment;method#JpaSort#3;class#JpaSort#0" />
+            <element signature="method#JpaSort#4;class#JpaSort#0" />
+            <element signature="method#JpaSort#5;class#JpaSort#0" />
+            <element signature="docComment;method#and#0;class#JpaSort#0" />
+            <element signature="method#and#0;class#JpaSort#0" />
+            <element signature="docComment;method#and#1;class#JpaSort#0" />
+            <element signature="method#and#1;class#JpaSort#0" />
+            <element signature="e#3600#3629#1" />
+            <element signature="docComment;method#andUnsafe#0;class#JpaSort#0" />
+            <element signature="method#andUnsafe#0;class#JpaSort#0" />
+            <element signature="e#4144#4171#1" />
+            <element signature="e#4210#4265#1" />
+            <element signature="docComment;method#paths#0;class#JpaSort#0" />
+            <element signature="method#paths#0;class#JpaSort#0" />
+            <element signature="e#4797#4837#1" />
+            <element signature="method#combine#0;class#JpaSort#0" />
+            <element signature="e#5064#5123#1" />
+            <element signature="docComment;method#path#0;class#JpaSort#0" />
+            <element signature="method#path#0;class#JpaSort#0" />
+            <element signature="docComment;method#path#1;class#JpaSort#0" />
+            <element signature="method#path#1;class#JpaSort#0" />
+            <element signature="docComment;method#unsafe#0;class#JpaSort#0" />
+            <element signature="docComment;method#unsafe#1;class#JpaSort#0" />
+            <element signature="method#unsafe#1;class#JpaSort#0" />
+            <element signature="docComment;method#unsafe#2;class#JpaSort#0" />
+            <element signature="method#unsafe#2;class#JpaSort#0" />
+            <element signature="e#7142#7197#1" />
+            <element signature="docComment;class#Path#0;class#JpaSort#0" />
+            <element signature="class#Path#0;class#JpaSort#0" />
+            <element signature="method#Path#0;class#Path#0;class#JpaSort#0" />
+            <element signature="docComment;method#dot#0;class#Path#0;class#JpaSort#0" />
+            <element signature="docComment;method#dot#1;class#Path#0;class#JpaSort#0" />
+            <element signature="method#add#0;class#Path#0;class#JpaSort#0" />
+            <element signature="n#!!doc;n#toString#0;n#Path#0;n#JpaSort#0" />
+            <element signature="method#toString#0;class#Path#0;class#JpaSort#0" />
+            <element signature="e#8715#8774#1" />
+            <element signature="docComment;class#JpaOrder#0;class#JpaSort#0" />
+            <element signature="docComment;method#JpaOrder#0;class#JpaOrder#0;class#JpaSort#0" />
+            <element signature="e#9797#9798#0" expanded="true" />
+            <element signature="e#9852#9853#0" expanded="true" />
+            <element signature="docComment;method#JpaOrder#1;class#JpaOrder#0;class#JpaSort#0" />
+            <element signature="method#JpaOrder#1;class#JpaOrder#0;class#JpaSort#0" />
+            <element signature="method#JpaOrder#2;class#JpaOrder#0;class#JpaSort#0" />
+            <element signature="n#!!doc;n#with#0;n#JpaOrder#0;n#JpaSort#0" />
+            <element signature="method#with#0;class#JpaOrder#0;class#JpaSort#0" />
+            <element signature="n#!!doc;n#with#1;n#JpaOrder#0;n#JpaSort#0" />
+            <element signature="method#with#1;class#JpaOrder#0;class#JpaSort#0" />
+            <element signature="docComment;method#withUnsafe#0;class#JpaOrder#0;class#JpaSort#0" />
+            <element signature="method#withUnsafe#0;class#JpaOrder#0;class#JpaSort#0" />
+            <element signature="e#11709#11819#1" />
+            <element signature="n#!!doc;n#ignoreCase#1;n#JpaOrder#0;n#JpaSort#0" />
+            <element signature="method#ignoreCase#0;class#JpaOrder#0;class#JpaSort#0" />
+            <element signature="n#!!doc;n#isIgnoreCase#0;n#JpaOrder#0;n#JpaSort#0" />
+            <element signature="docComment;method#isUnsafe#0;class#JpaOrder#0;class#JpaSort#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2-sources.jar!/org/primefaces/component/datatable/DataTable.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.1.6.RELEASE/spring-data-commons-2.1.6.RELEASE-sources.jar!/org/springframework/data/domain/Sort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/javax.faces/2.3.8/javax.faces-2.3.8.jar!/javax/faces/component/UIColumn.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+        <state relative-caret-position="256">
+          <caret line="463" column="46" lean-forward="true" selection-start-line="463" selection-start-column="46" selection-end-line="463" selection-end-column="46" />
           <folding>
-            <element signature="e#0#855#0" expanded="true" />
+            <element signature="docComment;class#Sort#0" />
+            <element signature="e#1896#1897#0" expanded="true" />
+            <element signature="e#1930#1931#0" expanded="true" />
+            <element signature="docComment;method#Sort#4;class#Sort#0" />
+            <element signature="e#3359#3460#1" />
+            <element signature="e#3552#3609#1" />
+            <element signature="docComment;method#by#2;class#Sort#0" />
+            <element signature="docComment;method#unsorted#0;class#Sort#0" />
+            <element signature="docComment;method#descending#0;class#Sort#0" />
+            <element signature="docComment;method#ascending#0;class#Sort#0" />
+            <element signature="docComment;method#and#0;class#Sort#0" />
+            <element signature="method#and#0;class#Sort#0" />
+            <element signature="e#6095#6121#1" />
+            <element signature="docComment;method#getOrderFor#0;class#Sort#0" />
+            <element signature="e#6386#6410#1" />
+            <element signature="n#!!doc;n#iterator#0;n#Sort#0" />
+            <element signature="n#!!doc;n#equals#0;n#Sort#0" />
+            <element signature="method#equals#0;class#Sort#0" />
+            <element signature="e#6731#6752#1" />
+            <element signature="e#6784#6806#1" />
+            <element signature="n#!!doc;n#hashCode#0;n#Sort#0" />
+            <element signature="method#hashCode#0;class#Sort#0" />
+            <element signature="n#!!doc;n#toString#0;n#Sort#0" />
+            <element signature="method#toString#0;class#Sort#0" />
+            <element signature="docComment;method#withDirection#0;class#Sort#0" />
+            <element signature="docComment;class#Direction#0;class#Sort#0" />
+            <element signature="docComment;method#isAscending#0;class#Direction#0;class#Sort#0" />
+            <element signature="docComment;method#isDescending#0;class#Direction#0;class#Sort#0" />
+            <element signature="docComment;method#fromString#0;class#Direction#0;class#Sort#0" />
+            <element signature="method#fromString#0;class#Direction#0;class#Sort#0" />
+            <element signature="e#8305#8371#0" />
+            <element signature="e#8392#8563#0" />
+            <element signature="docComment;method#fromOptionalString#0;class#Direction#0;class#Sort#0" />
+            <element signature="method#fromOptionalString#0;class#Direction#0;class#Sort#0" />
+            <element signature="e#8821#8870#0" />
+            <element signature="e#8906#8941#0" />
+            <element signature="docComment;class#NullHandling#0;class#Sort#0" />
+            <element signature="docComment;field#NATIVE#0;class#NullHandling#0;class#Sort#0" />
+            <element signature="docComment;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#Order#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#Order#1;class#Order#0;class#Sort#0" />
+            <element signature="method#Order#1;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#Order#2;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#by#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#asc#0;class#Order#0;class#Sort#0" />
+            <element signature="e#11988#11989#0" expanded="true" />
+            <element signature="e#12061#12062#0" expanded="true" />
+            <element signature="docComment;method#desc#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#Order#3;class#Order#0;class#Sort#0" />
+            <element signature="method#Order#3;class#Order#0;class#Sort#0" />
+            <element signature="e#13063#13145#1" />
+            <element signature="docComment;method#getDirection#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#getProperty#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#isAscending#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#isDescending#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#isIgnoreCase#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#with#0;class#Order#0;class#Sort#0" />
+            <element signature="method#with#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#withProperty#0;class#Order#0;class#Sort#0" />
+            <element signature="method#withProperty#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#withProperties#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#ignoreCase#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#with#1;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#nullsFirst#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#nullsLast#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#nullsNative#0;class#Order#0;class#Sort#0" />
+            <element signature="docComment;method#getNullHandling#0;class#Order#0;class#Sort#0" />
+            <element signature="n#!!doc;n#hashCode#0;n#Order#0;n#Sort#0" />
+            <element signature="method#hashCode#0;class#Order#0;class#Sort#0" />
+            <element signature="n#!!doc;n#equals#0;n#Order#0;n#Sort#0" />
+            <element signature="method#equals#0;class#Order#0;class#Sort#0" />
+            <element signature="e#16716#16739#1" />
+            <element signature="e#16773#16797#1" />
+            <element signature="n#!!doc;n#toString#0;n#Order#0;n#Sort#0" />
+            <element signature="method#toString#0;class#Order#0;class#Sort#0" />
+            <element signature="e#17238#17279#1" />
+            <element signature="e#17300#17339#1" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/view_dialog.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/elements/top_bar.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        <state relative-caret-position="51">
+          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/service/CrudService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="e#550#551#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/home_panel.xhtml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/entity/application/ui/Menu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/configuration_panel.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/menu_panel.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-          <folding>
-            <element signature="n#p:column#7;n#p:dataTable#0;n#h:form#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#f:facet#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:menu#0;n#f:facet#0;n#ui:composition#0;n#!!top" />
-            <element signature="n#p:submenu#0;n#p:menu#0;n#f:facet#0;n#ui:composition#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/panel_panel.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
+        <state relative-caret-position="391">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/edit_dialog.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="35" column="71" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/edit_dialog.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/elements/menu_item.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/MenuCrudBean.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/menu_panel.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/service/MenuService.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.3.9.Final/hibernate-core-5.3.9.Final-sources.jar!/org/hibernate/criterion/Criterion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/baseBean/BaseCrudBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/panelBean/PanelCrudBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/service/PanelService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="15" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/validator/AuthenticationValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/javax.faces/2.3.8/javax.faces-2.3.8-sources.jar!/javax/faces/convert/CharacterConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2-sources.jar!/org/primefaces/convert/ClientConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2-sources.jar!/org/primefaces/convert/CharacterConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="19" column="93" lean-forward="true" selection-start-line="19" selection-start-column="93" selection-end-line="19" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2.jar!/META-INF/faces-config.xml">
-      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1472">
-          <caret line="185" column="55" selection-start-line="185" selection-start-column="55" selection-end-line="185" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.6.RELEASE/spring-core-5.1.6.RELEASE-sources.jar!/org/springframework/core/convert/converter/Converter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/javax.faces/2.3.8/javax.faces-2.3.8-sources.jar!/javax/faces/convert/FacesConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="100" column="18" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/AuthenticationBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="37" column="54" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/baseBean/BaseBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" selection-start-line="11" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/beanComponents/PanelHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/menu_panel/add_dialog.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="52" column="61" selection-start-line="52" selection-start-column="61" selection-end-line="52" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/crud_panels/panel_panel/add_dialog.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="239">
           <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/primefacesIcons.properties">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.3.9.Final/hibernate-core-5.3.9.Final-sources.jar!/org/hibernate/criterion/Example.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#13532#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/configuration/initializer/DocumentConverter.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.1.6.RELEASE/spring-data-commons-2.1.6.RELEASE-sources.jar!/org/springframework/data/domain/Example.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.1.6.RELEASE/spring-data-commons-2.1.6.RELEASE-sources.jar!/org/springframework/data/repository/query/QueryByExampleExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.1.6.RELEASE/spring-data-jpa-2.1.6.RELEASE-sources.jar!/org/springframework/data/jpa/repository/JpaRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.1.6.RELEASE/spring-data-jpa-2.1.6.RELEASE-sources.jar!/org/springframework/data/jpa/domain/Specifications.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <caret line="59" column="57" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/DocumentConverter.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.1.6.RELEASE/spring-data-jpa-2.1.6.RELEASE-sources.jar!/org/springframework/data/jpa/domain/Specification.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+        <state relative-caret-position="457">
+          <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/MenuConverter.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar!/javax/persistence/criteria/Predicate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        <state relative-caret-position="-53">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar!/javax/persistence/criteria/Expression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar!/javax/persistence/criteria/Selection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar!/javax/persistence/TupleElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar!/javax/persistence/criteria/Root.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar!/javax/persistence/criteria/From.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar!/javax/persistence/criteria/Path.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.1.6.RELEASE/spring-data-jpa-2.1.6.RELEASE-sources.jar!/org/springframework/data/jpa/repository/JpaSpecificationExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#2581#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/NaturalPersonConverter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/controller/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/PanelConverter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/repository/MenuRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/RoleConverter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/service/DocumentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+        <state relative-caret-position="204">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/converter/AccountConverter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/entity/application/Role.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/repository/CrudRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/font awesome.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/configuration/AppConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_92/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="215" column="17" selection-start-line="215" selection-start-column="14" selection-end-line="215" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/entity/BaseEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="53" column="130" selection-start-line="53" selection-start-column="130" selection-end-line="53" selection-end-column="130" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="84" column="43" selection-start-line="84" selection-start-column="43" selection-end-line="84" selection-end-column="43" />
+        <state relative-caret-position="198">
+          <caret line="90" column="33" lean-forward="true" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/configuration/AppSecurity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/configuration/AppIcons.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/configuration/AppAuthenticationProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/SessionBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/MenuTrashBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/AccountTrashBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/elements/trash_table.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <element signature="n#h:form#0;n#ui:composition#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/6.2/primefaces-6.2-sources.jar!/org/primefaces/model/LazyDataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="100" column="15" selection-start-line="100" selection-start-column="15" selection-end-line="100" selection-end-column="15" />
+          <folding>
+            <element signature="docComment;class#LazyDataModel#0" />
+            <element signature="e#1225#1226#0" expanded="true" />
+            <element signature="e#1248#1249#0" expanded="true" />
+            <element signature="e#1893#1924#1" />
+            <element signature="e#2595#2596#0" expanded="true" />
+            <element signature="e#2626#2627#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/BaseTrashBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/panels/trash_panel.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/view/beanComponents/panelBean/trashBean/PanelTrashBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/view/appComponent/AppLazyDataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ir/appservice/model/service/CrudService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="79" column="53" selection-start-line="79" selection-start-column="53" selection-end-line="79" selection-end-column="53" />
         </state>
       </provider>
     </entry>

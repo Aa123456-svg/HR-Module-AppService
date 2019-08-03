@@ -1,6 +1,6 @@
-package ir.appservice.beanComponents.panelBean;
+package ir.appservice.view.beanComponents.panelBean.crudBean;
 
-import ir.appservice.beanComponents.baseBean.BaseCrudBean;
+import ir.appservice.view.beanComponents.baseBean.BaseCrudBean;
 import ir.appservice.model.entity.domain.NaturalPerson;
 import ir.appservice.model.service.DocumentService;
 import ir.appservice.model.service.NaturalPersonService;
@@ -23,11 +23,7 @@ public class NaturalPersonCrudBean extends BaseCrudBean<NaturalPerson> {
         this.naturalPersonService = naturalPersonService;
         this.documentService = documentService;
 
-        init();
-    }
-
-    public void init() {
-        super.init(NaturalPerson.class, naturalPersonService);
+        init(NaturalPerson.class, naturalPersonService);
     }
 
     public void uploadAvatar(FileUploadEvent event) {

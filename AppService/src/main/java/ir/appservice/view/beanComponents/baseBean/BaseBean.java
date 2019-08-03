@@ -1,4 +1,4 @@
-package ir.appservice.beanComponents.baseBean;
+package ir.appservice.view.beanComponents.baseBean;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,19 +12,19 @@ public abstract class BaseBean implements Serializable {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
     public void info(String message, String detail, String parentId) {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, detail));
+        FacesContext.getCurrentInstance().addMessage(parentId, new FacesMessage(FacesMessage.SEVERITY_INFO, message, detail));
     }
 
     public void warn(String message, String detail, String parentId) {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, message, detail));
+        FacesContext.getCurrentInstance().addMessage(parentId, new FacesMessage(FacesMessage.SEVERITY_WARN, message, detail));
     }
 
     public void error(String message, String detail, String parentId) {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, detail));
+        FacesContext.getCurrentInstance().addMessage(parentId, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, detail));
     }
 
     public void fatal(String message, String detail, String parentId) {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, detail));
+        FacesContext.getCurrentInstance().addMessage(parentId, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, detail));
     }
 
 }

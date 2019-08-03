@@ -1,6 +1,6 @@
-package ir.appservice.beanComponents.panelBean;
+package ir.appservice.view.beanComponents.panelBean.crudBean;
 
-import ir.appservice.beanComponents.baseBean.BaseCrudBean;
+import ir.appservice.view.beanComponents.baseBean.BaseCrudBean;
 import ir.appservice.model.entity.application.Account;
 import ir.appservice.model.service.AccountService;
 import ir.appservice.model.service.DocumentService;
@@ -23,11 +23,7 @@ public class AccountCrudBean extends BaseCrudBean<Account> {
         this.accountService = accountService;
         this.documentService = documentService;
 
-        init();
-    }
-
-    public void init() {
-        super.init(Account.class, accountService);
+        init(Account.class, accountService);
     }
 
     public void uploadAvatar(FileUploadEvent event) {

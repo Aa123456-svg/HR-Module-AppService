@@ -1,6 +1,6 @@
-package ir.appservice.beanComponents.panelBean;
+package ir.appservice.view.beanComponents.panelBean.crudBean;
 
-import ir.appservice.beanComponents.baseBean.BaseCrudBean;
+import ir.appservice.view.beanComponents.baseBean.BaseCrudBean;
 import ir.appservice.model.entity.domain.Document;
 import ir.appservice.model.service.DocumentService;
 import lombok.Getter;
@@ -23,11 +23,7 @@ public class DocumentCrudBean extends BaseCrudBean<Document> {
     public DocumentCrudBean(DocumentService documentService) {
         this.documentService = documentService;
 
-        init();
-    }
-
-    public void init() {
-        super.init(Document.class, documentService);
+        init(Document.class, documentService);
     }
 
     public void uploadDocument(FileUploadEvent event) {

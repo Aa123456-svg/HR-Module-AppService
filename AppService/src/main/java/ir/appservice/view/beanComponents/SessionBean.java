@@ -1,7 +1,7 @@
-package ir.appservice.beanComponents;
+package ir.appservice.view.beanComponents;
 
 import com.github.adminfaces.template.config.AdminConfig;
-import ir.appservice.beanComponents.baseBean.BaseBean;
+import ir.appservice.view.beanComponents.baseBean.BaseBean;
 import ir.appservice.model.entity.application.Account;
 import ir.appservice.model.entity.application.Role;
 import ir.appservice.model.entity.application.ui.Panel;

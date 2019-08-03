@@ -1,6 +1,6 @@
-package ir.appservice.beanComponents.panelBean;
+package ir.appservice.view.beanComponents.panelBean.crudBean;
 
-import ir.appservice.beanComponents.baseBean.BaseCrudBean;
+import ir.appservice.view.beanComponents.baseBean.BaseCrudBean;
 import ir.appservice.model.entity.application.Role;
 import ir.appservice.model.service.RoleService;
 import lombok.Getter;
@@ -19,10 +19,6 @@ public class RoleCrudBean extends BaseCrudBean<Role> {
     public RoleCrudBean(RoleService roleService) {
         this.roleService = roleService;
 
-        init();
-    }
-
-    public void init() {
-        super.init(Role.class, roleService);
+        init(Role.class, roleService);
     }
 }

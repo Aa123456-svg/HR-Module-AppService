@@ -1,6 +1,6 @@
-package ir.appservice.beanComponents;
+package ir.appservice.view.beanComponents;
 
-import ir.appservice.beanComponents.baseBean.BaseBean;
+import ir.appservice.view.beanComponents.baseBean.BaseBean;
 import ir.appservice.configuration.AppAuthenticationProvider;
 import lombok.Getter;
 import lombok.Setter;

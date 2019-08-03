@@ -1,6 +1,6 @@
-package ir.appservice.beanComponents;
+package ir.appservice.view.beanComponents;
 
-import ir.appservice.beanComponents.baseBean.BaseBean;
+import ir.appservice.view.beanComponents.baseBean.BaseBean;
 import ir.appservice.model.entity.application.ui.Panel;
 import ir.appservice.model.service.PanelService;
 import lombok.Getter;
@@ -45,7 +45,7 @@ public class PanelHandler extends BaseBean {
 
         Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
         for (Map.Entry<String, Object> panelBean : sessionMap.entrySet()) {
-            if (panelBean.getValue().toString().startsWith("ir.appservice.beanComponents.panelBean")) {
+            if (panelBean.getValue().toString().startsWith("ir.appservice.view.beanComponents.panelBean")) {
                 sessionMap.remove(panelBean.getKey());
                 logger.trace(String.format("Bean \"%s\"=\"%s\" removed.", panelBean.getKey(), panelBean.getValue()));
             }

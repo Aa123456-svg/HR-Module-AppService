@@ -49,4 +49,8 @@ public abstract class BaseEntity {
         }
     }
 
+    @Override
+    public String toString() {
+        return String.format("<Object: %s, ID: %s, DisplayName: %s>", this.getClass().getSimpleName(), this.id, this.displayName);
+    }
 }

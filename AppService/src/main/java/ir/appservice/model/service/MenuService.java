@@ -1,7 +1,6 @@
 package ir.appservice.model.service;
 
 import ir.appservice.model.entity.application.ui.Menu;
-import ir.appservice.model.entity.application.ui.Panel;
 import ir.appservice.model.repository.MenuRepository;
 import ir.appservice.model.repository.PanelRepository;
 import org.springframework.stereotype.Service;

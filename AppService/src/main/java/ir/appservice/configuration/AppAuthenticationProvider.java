@@ -1,6 +1,6 @@
 package ir.appservice.configuration;
 
-import ir.appservice.beanComponents.SessionBean;
+import ir.appservice.view.beanComponents.SessionBean;
 import ir.appservice.model.entity.application.Account;
 import ir.appservice.model.entity.application.Role;
 import ir.appservice.model.service.AccountService;
