@@ -9,8 +9,12 @@
     <p:dialog id="ADD_ITEM_DIALOG"
               header="Add"
               widgetVar="ADD_ITEM_DIALOG"
-              modal="true" resizable="false"
-              style="width: auto !important;"
+              modal="true"
+              closeOnEscape="true"
+              resizable="false"
+              showEffect="puff"
+              hideEffect="explode"
+              minWidth="400"
     >
 
         <h:form prependId="false">
@@ -18,20 +22,52 @@
 
                 <p:outputLabel for="@next" value="Display Name"/>
                 <p:inputText id="ADD_ITEM_DIALOG_ITEM_DISPLAYNAME" required="true"
-                             value="#{panelCrudBean.item.displayName}"/>
+                             value="#{panelCrudBean.appLazyDataModel.item.displayName}"/>
                 <p:message for="@previous" display="text"/>
 
                 <p:outputLabel for="@next" value="Resource Location"/>
                 <p:selectOneMenu id="ADD_ITEM_DIALOG_ITEM_RESOURCE_LOCATION"
-                                 value="#{panelCrudBean.item.resourceLocation}"
+                                 value="#{panelCrudBean.appLazyDataModel.item.resourceLocation}"
                                  required="true"
                                  label="Resource"
                                  effect="fade"
                                  filter="true"
                                  filterMatchMode="contains"
                 >
-                    <f:selectItem itemValue="" itemLabel=""/>
-                    <f:selectItems value="#{panelCrudBean.resources.keySet().toArray()}"/>
+                    <f:selectItem
+                            itemValue="#{panelCrudBean.appLazyDataModel.item.resourceLocation==null?'':panelCrudBean.appLazyDataModel.item.resourceLocation}"
+                            itemLabel="#{panelCrudBean.appLazyDataModel.item.resourceLocation==null?'Select':panelCrudBean.appLazyDataModel.item.resourceLocation}"
+                    />
+                    <f:selectItems value="#{panelsResources.entrySet()}" var="rs"
+                                   itemLabel="#{rs.key}" itemValue="#{rs.key}"
+                    />
+                </p:selectOneMenu>
+                <p:message for="@previous" display="text"/>
+
+                <p:outputLabel for="@next" value="Menu"/>
+                <p:selectOneMenu id="ADD_ITEM_DIALOG_ITEM_MENU"
+                                 label="Menu"
+                                 value="#{panelCrudBean.appLazyDataModel.item.menu}"
+                                 converterMessage="Menu Conversion Failed!"
+                                 converter="#{menuConverter}"
+                                 effect="fade"
+                                 filter="true"
+                                 var="menu"
+                                 filterMatchMode="contains"
+                >
+                    <f:selectItem
+                            itemValue="#{panelCrudBean.appLazyDataModel.item.menu==null?'':panelCrudBean.appLazyDataModel.item.menu}"
+                            itemLabel="#{panelCrudBean.appLazyDataModel.item.menu==null?'Select':panelCrudBean.appLazyDataModel.item.menu.displayName}"
+                    />
+                    <f:selectItems value="#{menuService.listWithoutPanel()}" var="m"
+                                   itemValue="#{m}"
+                                   itemLabel="#{m.displayName}"
+                    />
+                    <p:column>
+                        <i class="#{menu.icon}" title="#{menu.displayName}">
+                            <p:outputLabel style="margin-left: 1em" value="#{menu.displayName}"/>
+                        </i>
+                    </p:column>
                 </p:selectOneMenu>
                 <p:message for="@previous" display="text"/>
 
@@ -41,9 +77,9 @@
 
             <p:commandButton id="ADD_ITEM_BUTTON"
                              value="Apply"
-                             action="#{panelCrudBean.add}"
+                             action="#{panelCrudBean.appLazyDataModel.add}"
                              title="Apply Add"
-                             update="@form, ITEMS_LIST"
+                             update="@form, ITEMS_TABLE"
             />
         </h:form>
 

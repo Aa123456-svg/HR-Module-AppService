@@ -3,12 +3,17 @@ package ir.appservice.model.repository;
 import ir.appservice.model.entity.application.ui.Menu;
 import org.springframework.stereotype.Repository;
 
-import java.util.Set;
+import java.util.List;
 
 @Repository
-public interface MenuRepository extends CrudRepository<Menu, Long> {
+public interface MenuRepository extends CrudRepository<Menu, String> {
 
-    Set<Menu> findAllByTypeIgnoreCaseAndParentIsNullAndDeleteDateIsNull(String type);
+    List<Menu> findAllByTypeIgnoreCaseAndParentIsNullAndDeleteDateIsNull(String type);
 
-    Set<Menu> findAllByTypeAndParentIsNullIgnoreCaseOrderByPriorityAsc(String type);
+    List<Menu> findAllByTypeAndDeleteDateIsNull(String type);
+
+    List<Menu> findAllByTypeAndPanelIsNullAndDeleteDateIsNull(String type);
+
+    List<Menu> findAllByParentIsNullAndDeleteDateIsNull();
+
 }

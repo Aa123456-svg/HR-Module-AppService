@@ -2,37 +2,47 @@ package ir.appservice.model.entity.application;
 
 import ir.appservice.model.entity.BaseEntity;
 import ir.appservice.model.entity.application.ui.Panel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlIDREF;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@XmlRootElement
 public class Role extends BaseEntity {
 
-    @ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL)
-    private List<Account> accounts;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @XmlElement
+    @XmlIDREF
+    protected List<Account> accounts;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Panel> panels;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @XmlElement
+    @XmlIDREF
+    protected List<Panel> panels;
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        return obj != null
-//                && this.getClass() == obj.getClass()
-//                && this.getDisplayName().equalsIgnoreCase(((BaseEntity) obj).getDisplayName());
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return (int) ((17 * 31) + id);
-//    }
+    public Role(String displayName) {
+        super(displayName);
+    }
+
+    public Role(String displayName, List<Account> accounts, List<Panel> panels) {
+        super(displayName);
+        setPanels(panels);
+        setAccounts(accounts);
+    }
+
+    public Role(String displayName, List<Account> accounts) {
+        super(displayName);
+        setAccounts(accounts);
+    }
+
 }

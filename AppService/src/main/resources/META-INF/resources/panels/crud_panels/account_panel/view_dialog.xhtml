@@ -6,14 +6,14 @@
 >
 
     <p:dialog id="VIEW_ITEM_DIALOG"
-              header="#{accountCrudBean.item.displayName}"
+              header="#{accountCrudBean.appLazyDataModel.item.displayName}"
               widgetVar="VIEW_ITEM_DIALOG"
-              modal="true" resizable="false"
-              style="width: auto !important;"
+              modal="true"
+              resizable="false"
               closeOnEscape="true"
-              showEffect="blind"
+              showEffect="puff"
               hideEffect="explode"
-              appendTo="PANEL_CONTAINER"
+              minWidth="400"
     >
 
         <div class="row">
@@ -22,33 +22,34 @@
 
                     <dt>Display Name
                         <p:graphicImage
-                                value="#{accountCrudBean.documentService.streamImage()}"
+                                value="#{documentStreamer.imageStream()}"
                                 style="width: 50px; height: 50px; margin-left: 20px"
                                 styleClass="accountAvatar pull-right"
                         >
-                            <f:param name="imageId"
-                                     value="#{accountCrudBean.item.avatar!=null?accountCrudBean.item.avatar.id:-1}"/>
+                            <f:param name="#{documentStreamer.documentRequestId}"
+                                     value="#{accountCrudBean.appLazyDataModel.item.avatar != null?accountCrudBean.appLazyDataModel.item.avatar.id:''}"/>
                         </p:graphicImage>
                     </dt>
-                    <dd>#{accountCrudBean.item.displayName}</dd>
+                    <dd>#{accountCrudBean.appLazyDataModel.item.displayName}</dd>
                     <hr/>
 
                     <dt>Account Name</dt>
-                    <dd>#{accountCrudBean.item.accountName}</dd>
+                    <dd>#{accountCrudBean.appLazyDataModel.item.accountName}</dd>
                     <hr/>
 
                     <dt>Email</dt>
-                    <dd>#{accountCrudBean.item.email}</dd>
+                    <dd>#{accountCrudBean.appLazyDataModel.item.email}</dd>
                     <hr/>
 
                     <dt>Mobile Number</dt>
-                    <dd>#{accountCrudBean.item.mobileNumber}</dd>
+                    <dd>#{accountCrudBean.appLazyDataModel.item.mobileNumber}</dd>
                     <hr/>
 
                     <dt>Roles</dt>
                     <dd>
                         <ui:fragment>
-                            <ui:repeat value="#{accountCrudBean.item.roles}" var="role">
+                            <ui:repeat value="#{accountCrudBean.appLazyDataModel.item.roles}"
+                                       var="role">
                                 <label class="label label-default text-green text-bold">#{role.displayName}</label>
                             </ui:repeat>
                         </ui:fragment>

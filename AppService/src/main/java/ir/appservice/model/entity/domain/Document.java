@@ -1,30 +1,45 @@
 package ir.appservice.model.entity.domain;
 
 import ir.appservice.model.entity.BaseEntity;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Getter
 @Setter
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@XmlRootElement
 public class Document extends BaseEntity {
 
-    private String type;
-    private String description;
-    private long size;
-
+    @XmlElement
+    protected String type;
+    @XmlElement
+    protected String description;
+    @XmlElement
+    protected long size;
     @Lob
     @NotNull
-    private byte[] data;
+    @XmlElement
+    @Lazy
+    protected byte[] data;
+
+    public Document(String displayName, String type, String description, long size,
+                    @NotNull byte[] data) {
+        super(displayName);
+        setType(type);
+        setDescription(description);
+        setSize(size);
+        setData(data);
+    }
 }

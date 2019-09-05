@@ -6,14 +6,14 @@
 >
 
     <p:dialog id="VIEW_ITEM_DIALOG"
-              header="#{documentCrudBean.item.displayName}"
+              header="#{documentCrudBean.appLazyDataModel.item.displayName}"
               widgetVar="VIEW_ITEM_DIALOG"
-              modal="true" resizable="false"
-              style="width: auto !important;"
-              rendered="#{documentCrudBean.item != null}"
+              modal="true"
+              resizable="false"
               closeOnEscape="true"
-              showEffect="fold"
-              hideEffect="slide"
+              showEffect="puff"
+              hideEffect="explode"
+              minWidth="400"
     >
 
         <div class="row">
@@ -22,19 +22,19 @@
 
                     <dt>Display Name
                         <p:graphicImage
-                                value="#{documentCrudBean.documentService.streamImage()}"
+                                value="#{documentStreamer.imageStream()}"
                                 style="width: 50px; height: 50px; margin-left: 20px"
                                 styleClass="accountAvatar pull-right"
                         >
-                            <f:param name="imageId"
-                                     value="#{documentCrudBean.item!=null?documentCrudBean.item.id:-1}"/>
+                            <f:param name="#{documentStreamer.documentRequestId}"
+                                     value="#{documentCrudBean.appLazyDataModel.item.id}"/>
                         </p:graphicImage>
                     </dt>
-                    <dd>#{documentCrudBean.item.displayName}</dd>
+                    <dd>#{documentCrudBean.appLazyDataModel.item.displayName}</dd>
                     <hr/>
 
                     <dt>Decription</dt>
-                    <dd><p>#{documentCrudBean.item.description}</p></dd>
+                    <dd><p>#{documentCrudBean.appLazyDataModel.item.description}</p></dd>
 
                 </dl>
 

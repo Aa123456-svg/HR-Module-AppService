@@ -2,47 +2,34 @@ package ir.appservice.model.service;
 
 import ir.appservice.model.entity.domain.Document;
 import ir.appservice.model.repository.DocumentRepository;
-import org.apache.commons.io.FileUtils;
-import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
-import org.springframework.core.io.ClassPathResource;
+import org.primefaces.model.UploadedFile;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.ApplicationScope;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
-import javax.transaction.Transactional;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @Service
-@Transactional
+@ApplicationScope
 public class DocumentService extends CrudService<Document> {
 
-    private DocumentRepository documentRepository;
-
     public DocumentService(DocumentRepository documentRepository) {
-        super(documentRepository);
-        this.documentRepository = documentRepository;
+        super(documentRepository, Document.class);
     }
 
-    public Document saveFile(String filePath) throws IOException {
-
-        File defaultAvatarFile = new ClassPathResource(filePath).getFile();
-
-        Document defaultAvatar = new Document();
-        defaultAvatar.setDisplayName(defaultAvatarFile.getName());
-        defaultAvatar.setType(Files.probeContentType(defaultAvatarFile.toPath()));
-        defaultAvatar.setData(FileUtils.readFileToByteArray(defaultAvatarFile));
-
-        return documentRepository.save(defaultAvatar);
-
+    public DocumentRepository getDocumentRepository() {
+        return (DocumentRepository) this.crudRepository;
     }
 
     public StreamedContent streamImage() {
-        Long document_id = null;
+        String document_id = null;
         try {
             if (FacesContext.getCurrentInstance().getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
                 // So, we're rendering the HTML. Return a stub StreamedContent so that it will generate right URL.
@@ -50,28 +37,45 @@ public class DocumentService extends CrudService<Document> {
                 return new DefaultStreamedContent();
             } else {
                 logger.trace("imageId: " + FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("imageId"));
-                document_id = Long.valueOf(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("imageId"));
+                document_id = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("imageId");
                 logger.trace(String.format("Streaming document: %s", document_id));
-                return new DefaultStreamedContent(new ByteArrayInputStream(documentRepository.getById(document_id).getData()));
+                return new DefaultStreamedContent(new ByteArrayInputStream(getDocumentRepository().getById(document_id).getData()));
             }
         } catch (Exception e) {
             logger.error(String.format("Could not serve document: %s => %s", document_id, e.getMessage()));
-            return new DefaultStreamedContent(new ByteArrayInputStream(documentRepository.getById((long) 1).getData()));
+            return new DefaultStreamedContent();
         }
     }
 
-    public Document uploadDocument(FileUploadEvent event) {
-        logger.trace(String.format("Uploading file: %s, size: %s", event.getFile().getFileName(), event.getFile().getSize() + ""));
+    public Document uploadDocument(UploadedFile uploadedFile) {
+        logger.trace("Uploading file: {}, size: {}", uploadedFile.getFileName(),
+                uploadedFile.getSize());
 
         Document document = new Document();
-        document.setDisplayName(event.getFile().getFileName());
-        document.setData(event.getFile().getContents());
-        document.setType(event.getFile().getContentType());
-        document.setSize(event.getFile().getSize());
+        document.setDisplayName(uploadedFile.getFileName());
+        document.setData(uploadedFile.getContents());
+        document.setType(uploadedFile.getContentType());
+        document.setSize(uploadedFile.getSize());
+
+        logger.trace("Successful file upload {} is uploaded. Size {} (KB): ",
+                document.getDisplayName(),
+                document.getSize() / 1024f);
+
+        return document;
+    }
+
+    public Document convertToDocument(File file) throws IOException {
+        logger.trace("File: {}, size: {}", file, file.length());
+
+        Document document = new Document();
+        document.setDisplayName(Paths.get(file.toURI()).getFileName().toString());
+        document.setData(Files.readAllBytes(Paths.get(file.toURI())));
+        document.setType(Files.probeContentType(Paths.get(file.toURI())));
+        document.setSize(file.length());
 
         logger.trace("Successful file upload", document.getDisplayName() + " is uploaded. Size (KB): " + document.getSize() / 1024f, null);
 
-        return add(document);
+        return document;
     }
 
 

@@ -1,5 +1,6 @@
 package ir.appservice.configuration;
 
+import ir.appservice.model.service.AccountService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -16,16 +17,16 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
     private static final Logger logger = LoggerFactory.getLogger(AppSecurity.class);
 
     private SessionRegistry sessionRegistry;
-    private AppAuthenticationProvider appAuthenticationProvider;
+    private AccountService accountService;
 
-    public AppSecurity(SessionRegistry sessionRegistry, AppAuthenticationProvider appAuthenticationProvider) {
+    public AppSecurity(SessionRegistry sessionRegistry, AccountService accountService) {
         this.sessionRegistry = sessionRegistry;
-        this.appAuthenticationProvider = appAuthenticationProvider;
+        this.accountService = accountService;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) {
-        auth.authenticationProvider(appAuthenticationProvider);
+        auth.authenticationProvider(accountService);
     }
 
     @Override
@@ -38,7 +39,15 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .antMatchers("/javax.faces.resource/**", "/", "/index", "/index.xhtml", "/signout", "/error", "/resetPassword/*").permitAll()
+                .antMatchers(
+                        "/javax.faces.resource/**",
+                        "/",
+                        "/index",
+                        "/index.xhtml",
+                        "/signout",
+                        "/error",
+                        "/resetPassword/*"
+                ).permitAll()
                 .anyRequest().authenticated()
 
                 .and()

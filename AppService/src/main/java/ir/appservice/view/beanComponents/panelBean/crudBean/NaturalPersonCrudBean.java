@@ -1,9 +1,9 @@
 package ir.appservice.view.beanComponents.panelBean.crudBean;
 
-import ir.appservice.view.beanComponents.baseBean.BaseCrudBean;
 import ir.appservice.model.entity.domain.NaturalPerson;
+import ir.appservice.model.service.CrudService;
 import ir.appservice.model.service.DocumentService;
-import ir.appservice.model.service.NaturalPersonService;
+import ir.appservice.view.beanComponents.panelBean.BaseLazyCrudBean;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.event.FileUploadEvent;
@@ -14,19 +14,16 @@ import org.springframework.web.context.annotation.SessionScope;
 @Getter
 @Component
 @SessionScope
-public class NaturalPersonCrudBean extends BaseCrudBean<NaturalPerson> {
+public class NaturalPersonCrudBean extends BaseLazyCrudBean<NaturalPerson> {
 
-    private NaturalPersonService naturalPersonService;
     private DocumentService documentService;
 
-    public NaturalPersonCrudBean(NaturalPersonService naturalPersonService, DocumentService documentService) {
-        this.naturalPersonService = naturalPersonService;
+    public NaturalPersonCrudBean(CrudService<NaturalPerson> naturalPersonCrudService, DocumentService documentService) {
+        super(naturalPersonCrudService, NaturalPerson.class);
         this.documentService = documentService;
-
-        init(NaturalPerson.class, naturalPersonService);
     }
 
     public void uploadAvatar(FileUploadEvent event) {
-        this.getItem().setAvatar(documentService.uploadDocument(event));
+        this.appLazyDataModel.getItem().setAvatar(documentService.uploadDocument(event.getFile()));
     }
 }

@@ -5,8 +5,8 @@ import ir.appservice.model.entity.application.ui.Panel;
 import ir.appservice.model.repository.MenuRepository;
 import ir.appservice.model.repository.PanelRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.ApplicationScope;
 
-import javax.transaction.Transactional;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,31 +14,40 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@Transactional
+@ApplicationScope
 public class PanelService extends CrudService<Panel> {
 
-    private PanelRepository panelRepository;
     private MenuRepository menuRepository;
 
     public PanelService(PanelRepository panelRepository, MenuRepository menuRepository) {
-        super(panelRepository);
-        this.panelRepository = panelRepository;
+        super(panelRepository, Panel.class);
         this.menuRepository = menuRepository;
     }
 
     public boolean existsByDisplayNameIgnoreCase(String displayName) {
-        return panelRepository.existsByDisplayNameIgnoreCase(displayName);
+        return crudRepository.existsByDisplayNameIgnoreCase(displayName);
     }
 
-    public Panel addWithMenu(Panel panel) {
-
+    public Panel addWithMenu(Panel panel, int priority, String icon, Menu parent) {
         Menu menu = new Menu();
-        menu.setType(Menu.SIDE_BAR_MENU);
-        menu.setPriority(Integer.MAX_VALUE);
-        menu.setDisplayName(panel.getDisplayName());
-        menuRepository.save(menu);
-        panel.setMenu(menu);
-        return panelRepository.save(panel);
+        if (panel.getMenu() == null) {
+            menu.setType(Menu.PANEL_MENU);
+            menu.setPriority(priority);
+            menu.setDisplayName(panel.getDisplayName());
+            menu.setIcon(icon);
+            menu.setParent(parent);
+            menuRepository.save(menu);
+            panel.setMenu(menu);
+        }
+        return getPanelRepository().save(panel);
+    }
+
+    private PanelRepository getPanelRepository() {
+        return (PanelRepository) crudRepository;
+    }
+
+    public Panel getDefaultPanel() {
+        return getPanelRepository().findByDisplayNameIgnoreCase("Home");
     }
 
     public Map<String, File> getPanelsResources() {

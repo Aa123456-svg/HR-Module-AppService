@@ -28,7 +28,7 @@ public class Controller extends BaseController {
     }
 
     @GetMapping("/{id}")
-    public void getDocument(@PathVariable long id, HttpServletResponse response) throws IOException {
+    public void getDocument(@PathVariable String id, HttpServletResponse response) throws IOException {
 
         Document document = documentService.get(id);
         logger.trace(String.format("Document: %s, %s, %s", document.getDisplayName(), document.getType(), document.getSize()));

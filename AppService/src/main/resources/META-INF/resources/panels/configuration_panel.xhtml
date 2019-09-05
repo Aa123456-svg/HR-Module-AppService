@@ -23,7 +23,8 @@
                 </p:tab>
 
                 <p:tab title="Font Awesome Icons">
-                    <p:dataTable stickyHeader="Font Awesome Icons" var="f" value="#{fontAwesomeIcons}"
+                    <p:dataTable stickyHeader="Font Awesome Icons" var="f"
+                                 value="#{fontAwesomeIcons}"
                                  styleClass="date-picker">
                         <p:column headerText="Name">
                             <h:outputText value="#{f.key}"/>
@@ -46,8 +47,10 @@
     <f:facet name="options">
         <p:menu>
             <p:submenu label="Settings">
-                <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="PF('panel').toggle()"/>
-                <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="PF('panel').close()"/>
+                <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin"
+                            onclick="PF('panel').toggle()"/>
+                <p:menuitem value="Remove" url="#" icon="ui-icon-close"
+                            onclick="PF('panel').close()"/>
             </p:submenu>
         </p:menu>
     </f:facet>

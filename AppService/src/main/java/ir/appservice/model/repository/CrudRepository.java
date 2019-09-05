@@ -1,5 +1,6 @@
 package ir.appservice.model.repository;
 
+import ir.appservice.model.entity.BaseEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,7 +11,9 @@ import java.io.Serializable;
 import java.util.List;
 
 @NoRepositoryBean
-public interface CrudRepository<T, ID extends Serializable> extends JpaRepository<T, ID>, JpaSpecificationExecutor<T> {
+public interface CrudRepository<T extends BaseEntity, ID extends Serializable> extends JpaRepository<T,
+        ID>,
+        JpaSpecificationExecutor<T> {
 
     boolean existsByDisplayNameIgnoreCase(String displayName);
 
@@ -18,13 +21,13 @@ public interface CrudRepository<T, ID extends Serializable> extends JpaRepositor
 
     T findByDisplayNameIgnoreCase(String displayName);
 
-    List<T> findAllByDeleteDateIsNullOrderByIdDesc();
+    List<T> findAllByDeleteDateIsNull();
 
-    Page<T> findAllByDeleteDateIsNullOrderByIdDesc(Pageable pageable);
+    Page<T> findAllByDeleteDateIsNull(Pageable pageable);
 
-    List<T> findAllByDeleteDateIsNotNullOrderByIdDesc();
+    List<T> findAllByDeleteDateIsNotNull();
 
-    Page<T> findAllByDeleteDateIsNotNullOrderByIdDesc(Pageable pageable);
+    Page<T> findAllByDeleteDateIsNotNull(Pageable pageable);
 
-    T getById(Long id);
+    T getById(String id);
 }

@@ -10,18 +10,21 @@
             <h:panelGrid columns="3" rowClasses="form-group">
 
                 <h:outputLabel for="accountName" value="Name or Email or Mobile: "/>
-                <p:inputText id="accountName" value="#{sessionBean.account.accountName}" required="true"
+                <p:inputText id="accountName" value="#{sessionBean.account.accountName}"
+                             required="true"
                              requiredMessage="Account Name required!" label="Account Name"
                              styleClass="form-control"/>
                 <p:message for="accountName" showDetail="false"/>
 
                 <h:outputLabel for="email" value="Email: "/>
                 <p:inputText id="email" value="#{sessionBean.account.email}" required="true"
-                             requiredMessage="Email required!" label="Email" styleClass="form-control"/>
+                             requiredMessage="Email required!" label="Email"
+                             styleClass="form-control"/>
                 <p:message for="email" showDetail="false"/>
 
                 <h:outputLabel for="displayName" value="Display Name: "/>
-                <p:inputText id="displayName" value="#{sessionBean.account.displayName}" required="true"
+                <p:inputText id="displayName" value="#{sessionBean.account.displayName}"
+                             required="true"
                              requiredMessage="Display Name required!" label="Display Name"
                              styleClass="form-control"/>
                 <p:message for="displayName" showDetail="false"/>

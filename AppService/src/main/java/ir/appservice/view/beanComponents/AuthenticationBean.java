@@ -1,7 +1,6 @@
 package ir.appservice.view.beanComponents;
 
-import ir.appservice.view.beanComponents.baseBean.BaseBean;
-import ir.appservice.configuration.AppAuthenticationProvider;
+import ir.appservice.model.service.AccountService;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -9,23 +8,22 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.context.annotation.RequestScope;
 
 import javax.faces.context.FacesContext;
 
 @Setter
 @Getter
 @Component
-@SessionScope
+@RequestScope
 public class AuthenticationBean extends BaseBean {
 
     private String loginId = "";
     private String password = "";
-    private AppAuthenticationProvider appAuthenticationProvider;
+    private AccountService accountService;
 
-    public AuthenticationBean(AppAuthenticationProvider appAuthenticationProvider) {
-        this.appAuthenticationProvider = appAuthenticationProvider;
-
+    public AuthenticationBean(AccountService accountService) {
+        this.accountService = accountService;
         logger.trace("Initializing");
     }
 
@@ -35,7 +33,7 @@ public class AuthenticationBean extends BaseBean {
         Authentication auth;
         try {
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginId, password);
-            auth = appAuthenticationProvider.authenticate(authenticationToken);
+            auth = accountService.authenticate(authenticationToken);
             SecurityContextHolder.getContext().setAuthentication(auth);
 
             logger.trace(String.format("Authenticated %s and redirecting ...", loginId));

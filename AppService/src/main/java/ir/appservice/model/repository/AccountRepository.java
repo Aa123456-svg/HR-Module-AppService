@@ -3,8 +3,9 @@ package ir.appservice.model.repository;
 import ir.appservice.model.entity.application.Account;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
-public interface AccountRepository extends CrudRepository<Account, Long> {
+public interface AccountRepository extends CrudRepository<Account, String> {
 
     boolean existsByAccountNameIgnoreCase(String name);
 
@@ -18,5 +19,6 @@ public interface AccountRepository extends CrudRepository<Account, Long> {
 
     Account findByEmailIgnoreCase(String phoneNumber);
 
+    boolean existsByAccountNameOrMobileNumberOrEmailAndPassword(String accountName, String mobileNumber, String email, String password);
 
 }

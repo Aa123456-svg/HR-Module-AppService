@@ -3,11 +3,13 @@ package ir.appservice.configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
@@ -18,9 +20,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.regex.Pattern;
 
 @Configuration
@@ -29,6 +29,9 @@ import java.util.regex.Pattern;
 public class AppConfiguration implements WebMvcConfigurer {
 
     private final Logger logger = LoggerFactory.getLogger(AppConfiguration.class);
+
+    @Value("classpath*:META-INF/resources/**/*.xhtml")
+    private Resource[] xhtmlResources;
 
     @Autowired
     private Environment env;
@@ -89,8 +92,30 @@ public class AppConfiguration implements WebMvcConfigurer {
     }
 
     @Bean
+    public SortedMap<String, String> appIcons() throws IOException {
+        SortedMap<String, String> iconMap = new TreeMap<>(fontAwesomeIcons());
+        iconMap.putAll(glyphicons());
+
+        return iconMap;
+    }
+
+    @Bean
     public SessionRegistry sessionRegistry() {
         return new SessionRegistryImpl();
+    }
+
+    @Bean
+    public Map<String, Resource> panelsResources() throws IOException {
+        Map<String, Resource> panelsResources = new HashMap<>();
+        for (Resource resource : xhtmlResources) {
+            String relativePath = resource.getURL().getPath();
+            relativePath = relativePath.substring(relativePath.lastIndexOf("resources")).replace(
+                    "resources/", "").replace("/", "\\");
+            panelsResources.put(relativePath, resource);
+//            logger.trace("Resource: {}", relativePath);
+        }
+
+        return panelsResources;
     }
 
 }

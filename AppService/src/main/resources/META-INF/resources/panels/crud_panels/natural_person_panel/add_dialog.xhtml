@@ -9,11 +9,12 @@
     <p:dialog id="ADD_ITEM_DIALOG"
               header="Add"
               widgetVar="ADD_ITEM_DIALOG"
-              modal="true" resizable="false"
-              style="width: auto !important;"
+              modal="true"
+              resizable="false"
               closeOnEscape="true"
               showEffect="puff"
               hideEffect="explode"
+              minWidth="400"
     >
         <h:form prependId="false">
             <h:panelGrid columns="3" cellpadding="50">
@@ -22,7 +23,8 @@
                 <p:fileUpload id="ADD_ITEM_DIALOG_ITEM_AVATAR"
                               fileUploadListener="#{naturalPersonCrudBean.uploadAvatar}"
                               mode="advanced"
-                              dragDropSupport="true" auto="false" onstart="showBar()" oncomplete="hideBar()"
+                              dragDropSupport="true" auto="false" onstart="showBar()"
+                              oncomplete="hideBar()"
                               multiple="false"
                               sizeLimit="1000000"
                               allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
@@ -31,22 +33,22 @@
 
                 <p:outputLabel for="@next" value="First Name"/>
                 <p:inputText id="ADD_ITEM_DIALOG_ITEM_FIRSTNAME" required="true"
-                             value="#{naturalPersonCrudBean.item.firstName}"/>
+                             value="#{naturalPersonCrudBean.appLazyDataModel.item.firstName}"/>
                 <p:message for="@previous" display="text"/>
 
                 <p:outputLabel for="@next" value="Last Name"/>
                 <p:inputText id="ADD_ITEM_DIALOG_ITEM_LASTNAME" required="true"
-                             value="#{naturalPersonCrudBean.item.lastName}"/>
+                             value="#{naturalPersonCrudBean.appLazyDataModel.item.lastName}"/>
                 <p:message for="@previous" display="text"/>
 
                 <p:outputLabel for="@next" value="Display Name"/>
                 <p:inputText id="ADD_ITEM_DIALOG_ITEM_DISPLAYNAME" required="true"
-                             value="#{naturalPersonCrudBean.item.displayName}"/>
+                             value="#{naturalPersonCrudBean.appLazyDataModel.item.displayName}"/>
                 <p:message for="@previous" display="text"/>
 
                 <p:outputLabel for="@next" value="Mobile Number"/>
                 <p:inputText id="ADD_ITEM_DIALOG_ITEM_MOBILE_NUMBER" required="true"
-                             value="#{naturalPersonCrudBean.item.mobileNumber}"/>
+                             value="#{naturalPersonCrudBean.appLazyDataModel.item.mobileNumber}"/>
                 <p:message for="@previous" display="text"/>
 
             </h:panelGrid>
@@ -55,9 +57,9 @@
 
             <p:commandButton id="ADD_ITEM_BUTTON"
                              value="Apply"
-                             action="#{naturalPersonCrudBean.add}"
+                             action="#{naturalPersonCrudBean.appLazyDataModel.add}"
                              title="Apply Add"
-                             update="@form, ITEMS_LIST"
+                             update="@form, ITEMS_TABLE"
             />
 
         </h:form>

@@ -6,18 +6,30 @@
     <p:importConstants type="ir.appservice.model.entity.application.ui.Menu"/>
 
     <c:if test="#{menu.type eq Menu.CATEGORY_MENU}">
-        <li class="header">
-            <p:outputLabel styleClass="text-green">#{menu.displayName}</p:outputLabel>
+        <li class="treeview">
+            <a href="#">
+                <i class="#{menu.icon}"/>
+                <span>#{menu.displayName}</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+
+            <ul class="treeview-menu">
+                <c:forEach var="sub" items="#{menu.subMenus}">
+                    <ui:include src="menu_item.xhtml">
+                        <ui:param name="menu" value="#{sub}"/>
+                    </ui:include>
+                </c:forEach>
+            </ul>
+
         </li>
-        <ui:repeat value="#{menu.subMenus}" var="menu">
-            <ui:include src="menu_item.xhtml">
-                <ui:param name="menu" value="#{menu}"/>
-            </ui:include>
-        </ui:repeat>
     </c:if>
-    <c:if test="#{menu.type == Menu.SIDE_BAR_MENU}">
+
+    <c:if test="#{menu.type eq Menu.PANEL_MENU}">
         <li>
-            <p:commandLink action="#{panelHandler.openPanel(menu.panel.id)}" update="PANEL_CONTAINER">
+            <p:commandLink actionListener="#{panelHandler.openPanel(menu.panel.id)}"
+                           update="PANEL_CONTAINER">
                 <i class="#{menu.icon}"/>
                 <span>#{menu.displayName}</span>
             </p:commandLink>

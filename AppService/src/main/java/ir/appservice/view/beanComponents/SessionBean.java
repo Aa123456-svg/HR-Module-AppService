@@ -1,10 +1,8 @@
 package ir.appservice.view.beanComponents;
 
 import com.github.adminfaces.template.config.AdminConfig;
-import ir.appservice.view.beanComponents.baseBean.BaseBean;
+import ir.appservice.model.entity.BaseEntity;
 import ir.appservice.model.entity.application.Account;
-import ir.appservice.model.entity.application.Role;
-import ir.appservice.model.entity.application.ui.Panel;
 import ir.appservice.model.entity.domain.Document;
 import ir.appservice.model.service.AccountService;
 import ir.appservice.model.service.DocumentService;
@@ -43,10 +41,6 @@ public class SessionBean extends BaseBean {
         this.adminConfig = adminConfig;
         this.sessionRegistry = sessionRegistry;
 
-        init();
-    }
-
-    public void init() {
         logger.trace("SessionBean account: " + account);
     }
 
@@ -58,24 +52,11 @@ public class SessionBean extends BaseBean {
     }
 
     public boolean isAuthenticated() {
-//        logger.trace("SessionBean isAuthenticated: " + account);
-
         return account != null;
     }
 
-    public boolean isAuthorized(Object object) {
-        boolean isAuthorized = false;
-        if (object instanceof Panel) {
-            isAuthorized = isAuthenticated() && account.getPanels().contains(object);
-            logger.trace(String.format("Panel %s isAuthorized: %s", object, isAuthorized));
-        } else if (object instanceof Role && object != null) {
-            isAuthorized = isAuthenticated() && account.getRoles().contains(object);
-            logger.trace(String.format("Role %s isAuthorized: %s", object, isAuthorized));
-        } else {
-            logger.trace("SessionBean isAuthorized: " + isAuthorized);
-        }
-
-        return isAuthorized;
+    public boolean isAuthorized(BaseEntity object) {
+        return accountService.isAuthorized(account, object);
     }
 
     public void edit() {
@@ -90,7 +71,7 @@ public class SessionBean extends BaseBean {
 
     public void reload() {
         try {
-            account = accountService.get(account.getId());
+            account = accountService.getWithRolesAndPanelsAndMenus(account.getId());
             logger.trace("Reload Profile Successful");
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,11 +80,10 @@ public class SessionBean extends BaseBean {
     }
 
     public void uploadAvatar(FileUploadEvent event) {
-
-        Document document = documentService.uploadDocument(event);
+        Document document = documentService.uploadDocument(event.getFile());
         account.setAvatar(document);
-        account = accountService.edit(account);
-
+        accountService.edit(account);
+        reload();
         info("Successful file upload", document.getDisplayName() + " is uploaded. Size (KB): " + document.getSize() / 1024f, null);
     }
 

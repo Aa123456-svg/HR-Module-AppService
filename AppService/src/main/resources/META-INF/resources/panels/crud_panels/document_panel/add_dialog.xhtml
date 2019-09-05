@@ -9,29 +9,43 @@
     <p:dialog id="ADD_ITEM_DIALOG"
               header="Add"
               widgetVar="ADD_ITEM_DIALOG"
-              modal="true" resizable="false"
-              style="width: auto !important;"
+              modal="true"
+              resizable="false"
               closeOnEscape="true"
               showEffect="puff"
               hideEffect="explode"
+              minWidth="400"
     >
         <h:form prependId="false">
+
             <h:panelGrid columns="3">
 
-                <p:outputLabel for="@next" value="Data"/>
-                <p:fileUpload id="ADD_ITEM_DIALOG_ITEM_DATA" fileUploadListener="#{documentCrudBean.uploadDocument}"
+                <p:outputLabel for="@next" value="File: "/>
+                <p:fileUpload id="ADD_ITEM_DIALOG_ITEM_DATA"
+                              fileUploadListener="#{documentCrudBean.uploadDocument}"
                               mode="advanced"
                               required="true"
-                              dragDropSupport="true" auto="false" onstart="showBar()" oncomplete="hideBar()"
+                              dragDropSupport="true" auto="false" onstart="showBar()"
+                              oncomplete="hideBar()"
                               multiple="false"
-                              update=""
+                              update="@form"
                               sizeLimit="1000000"
                 />
-                <p:message for="@previous" display="icon"/>
+                <p:message for="@previous" display="text"/>
 
-                <p:outputLabel for="@next" value="Description"/>
+                <p:outputLabel for="@next" value="Display Name: "/>
+                <p:inputText id="ADD_ITEM_DIALOG_ITEM_DISPLAY_NAME"
+                             value="#{documentCrudBean.appLazyDataModel.item.displayName}"/>
+                <p:message for="@previous" display="text"/>
+
+                <p:outputLabel for="@next" value="Type: "/>
+                <p:outputLabel id="ADD_ITEM_DIALOG_ITEM_TYPE"
+                               value="#{documentCrudBean.appLazyDataModel.item.type}"/>
+                <p:message for="@previous" display="text"/>
+
+                <p:outputLabel for="@next" value="Description: "/>
                 <p:inputText id="ADD_ITEM_DIALOG_ITEM_DESCRIPTION"
-                             value="#{documentCrudBean.item.description}"/>
+                             value="#{documentCrudBean.appLazyDataModel.item.description}"/>
                 <p:message for="@previous" display="text"/>
 
             </h:panelGrid>
@@ -40,9 +54,9 @@
 
             <p:commandButton id="ADD_ITEM_BUTTON"
                              value="Apply"
-                             action="#{documentCrudBean.add}"
+                             action="#{documentCrudBean.appLazyDataModel.add}"
                              title="Apply Add"
-                             update="@form, ITEMS_LIST"
+                             update="@form, ITEMS_TABLE"
             />
 
         </h:form>

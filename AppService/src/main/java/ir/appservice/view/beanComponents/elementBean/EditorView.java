@@ -1,6 +1,6 @@
 package ir.appservice.view.beanComponents.elementBean;
 
-import ir.appservice.view.beanComponents.baseBean.BaseBean;
+import ir.appservice.view.beanComponents.BaseBean;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

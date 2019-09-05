@@ -4,12 +4,14 @@
                 xmlns:p="http://primefaces.org/ui"
 >
 
-    <p:dialog header="Sign In" widgetVar="signinModal" modal="true" resizable="false" appendTo="@(body)">
+    <p:dialog header="Sign In" widgetVar="signinModal" modal="true" resizable="false"
+              appendTo="@(body)">
         <h:form prependId="false">
 
             <h:panelGrid columns="3">
 
-                <h:outputLabel for="loginId" value="Name or Email or Mobile: " icon="fa fa-floppy-o"/>
+                <h:outputLabel for="loginId" value="Name or Email or Mobile: "
+                               icon="fa fa-floppy-o"/>
                 <p:inputText id="loginId" value="#{authenticationBean.loginId}" required="true"
                              requiredMessage="Login ID required!" label="Login ID"/>
                 <p:message for="loginId" showDetail="false"/>

@@ -18,7 +18,8 @@
         <p:tabView>
             <p:tab title="Session Information">
                 <p:scrollPanel mode="native">
-                    <p:dataTable var="sessionMap" value="#{facesContext.externalContext.sessionMap}">
+                    <p:dataTable var="sessionMap"
+                                 value="#{facesContext.externalContext.sessionMap}">
                         <p:column headerText="Key">
                             <h:outputText value="#{sessionMap.key}"/>
                         </p:column>

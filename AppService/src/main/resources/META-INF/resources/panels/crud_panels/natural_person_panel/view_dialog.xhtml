@@ -6,13 +6,14 @@
 >
 
     <p:dialog id="VIEW_ITEM_DIALOG"
-              header="#{naturalPersonCrudBean.item.displayName}"
+              header="#{naturalPersonCrudBean.appLazyDataModel.item.displayName}"
               widgetVar="VIEW_ITEM_DIALOG"
-              modal="true" resizable="false"
-              style="width: auto !important;"
+              modal="true"
+              resizable="false"
               closeOnEscape="true"
-              showEffect="clip"
-              hideEffect="drop"
+              showEffect="puff"
+              hideEffect="explode"
+              minWidth="400"
     >
 
 
@@ -22,27 +23,27 @@
 
                     <dt>Display Name
                         <p:graphicImage
-                                value="#{naturalPersonCrudBean.documentService.streamImage()}"
+                                value="#{documentStreamer.imageStream()}"
                                 style="width: 50px; height: 50px; margin-left: 20px"
                                 styleClass="accountAvatar pull-right"
                         >
-                            <f:param name="imageId"
-                                     value="#{naturalPersonCrudBean.item.avatar!=null?naturalPersonCrudBean.item.avatar.id:-1}"/>
+                            <f:param name="#{documentStreamer.documentRequestId}"
+                                     value="#{naturalPersonCrudBean.appLazyDataModel.item.avatar!=null?naturalPersonCrudBean.appLazyDataModel.item.avatar.id:''}"/>
                         </p:graphicImage>
                     </dt>
-                    <dd>#{naturalPersonCrudBean.item.displayName}</dd>
+                    <dd>#{naturalPersonCrudBean.appLazyDataModel.item.displayName}</dd>
                     <hr/>
 
                     <dt>First Name</dt>
-                    <dd>#{naturalPersonCrudBean.item.firstName}</dd>
+                    <dd>#{naturalPersonCrudBean.appLazyDataModel.item.firstName}</dd>
                     <hr/>
 
                     <dt>Last Name</dt>
-                    <dd>#{naturalPersonCrudBean.item.lastName}</dd>
+                    <dd>#{naturalPersonCrudBean.appLazyDataModel.item.lastName}</dd>
                     <hr/>
 
                     <dt>Mobile Number</dt>
-                    <dd>#{naturalPersonCrudBean.item.mobileNumber}</dd>
+                    <dd>#{naturalPersonCrudBean.appLazyDataModel.item.mobileNumber}</dd>
                     <hr/>
 
                 </dl>

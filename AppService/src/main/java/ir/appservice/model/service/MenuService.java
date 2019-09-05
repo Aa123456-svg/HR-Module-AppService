@@ -2,26 +2,33 @@ package ir.appservice.model.service;
 
 import ir.appservice.model.entity.application.ui.Menu;
 import ir.appservice.model.repository.MenuRepository;
-import ir.appservice.model.repository.PanelRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.ApplicationScope;
 
-import javax.transaction.Transactional;
-import java.util.Set;
+import java.util.List;
 
 @Service
-@Transactional
+@ApplicationScope
 public class MenuService extends CrudService<Menu> {
 
-    private MenuRepository menuRepository;
-    private PanelRepository panelRepository;
-
     public MenuService(MenuRepository menuRepository) {
-        super(menuRepository);
-        this.menuRepository = menuRepository;
+        super(menuRepository, Menu.class);
     }
 
-    public Set<Menu> list(String type) {
-        return menuRepository.findAllByTypeIgnoreCaseAndParentIsNullAndDeleteDateIsNull(type);
+    public List<Menu> list(String type) {
+        return getMenuRepository().findAllByTypeIgnoreCaseAndParentIsNullAndDeleteDateIsNull(type);
+    }
+
+    private MenuRepository getMenuRepository() {
+        return ((MenuRepository) crudRepository);
+    }
+
+    public List<Menu> listWithoutPanel() {
+        return getMenuRepository().findAllByTypeAndPanelIsNullAndDeleteDateIsNull(Menu.PANEL_MENU);
+    }
+
+    public List<Menu> listParents() {
+        return getMenuRepository().findAllByTypeAndDeleteDateIsNull(Menu.CATEGORY_MENU);
     }
 
 }
