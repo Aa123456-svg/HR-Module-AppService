@@ -47,6 +47,12 @@ public class Account extends BaseEntity {
     @XmlIDREF
     protected Document avatar;
 
+    @OneToMany(mappedBy = "account", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @XmlElement
+    @XmlIDREF
+    protected List<ResetPasswordToken> resetPasswordTokens;
+
     @ManyToMany(mappedBy = "accounts", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @XmlElement
@@ -97,6 +103,13 @@ public class Account extends BaseEntity {
                     role.getAccounts().add(this);
                 }
             });
+        }
+    }
+
+    public void setResetPasswordToken(List<ResetPasswordToken> resetPasswordTokens) {
+        this.resetPasswordTokens = resetPasswordTokens;
+        if (this.resetPasswordTokens != null) {
+            this.resetPasswordTokens.forEach(tokens -> tokens.setAccount(this));
         }
     }
 }

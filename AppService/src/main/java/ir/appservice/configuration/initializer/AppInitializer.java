@@ -14,20 +14,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
-@Configuration
-@PropertySource(value = {"classpath:account.properties"})
-@ConfigurationProperties(prefix = "app.initializer")
+@Component
 @Setter
 public class AppInitializer implements InitializingBean, DisposableBean {
 
@@ -44,12 +41,14 @@ public class AppInitializer implements InitializingBean, DisposableBean {
 
     private AccountService accountService;
     private DocumentService documentService;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public AppInitializer(Environment env, AccountService accountService,
-                          DocumentService documentService) {
+                          DocumentService documentService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.env = env;
         this.accountService = accountService;
         this.documentService = documentService;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
@@ -66,13 +65,15 @@ public class AppInitializer implements InitializingBean, DisposableBean {
         NaturalPerson adminNP = new NaturalPerson("Admin", "Admin",
                 "", "980000000000", new Date(), avatar);
         Account adminAccount = new Account("Admin", "Admin",
-                "Admin" + env.getProperty("spring.application.domain"), "980000000000", "Admin",
+                bCryptPasswordEncoder.encode("Admin"), env.getProperty("spring.mail.username"), "980000000000",
                 adminNP, avatar);
 
         NaturalPerson userNP = new NaturalPerson("User", "User",
                 "", "980000000000", new Date(), avatar);
         Account userAccount = new Account("User", "User",
-                "User" + env.getProperty("spring.application.domain"), "980000000000", "User",
+                bCryptPasswordEncoder.encode("User"), "User@" + env.getProperty("spring" +
+                ".application" +
+                ".domain"), "980000000000",
                 userNP, avatar
         );
 
@@ -100,20 +101,32 @@ public class AppInitializer implements InitializingBean, DisposableBean {
                 "/panels/crud_panels/menu_panel/menu_panel.xhtml", 60,
                 null);
 
+        Menu manageEMailPanelMenu = new Menu("Manage Emails", "glyphicon glyphicon-envelope",
+                "/panels/crud_panels/email_panel/email_panel.xhtml", 70,
+                null);
+
+        Menu manageResetPasswordTokenPanelMenu = new Menu("Manage Reset Password Tokens",
+                "glyphicon glyphicon-refresh",
+                "/panels/crud_panels/reset_password_token_panel/reset_password_token_panel.xhtml"
+                , 80,
+                null);
+
         Menu configurationPanelMenu = new Menu("App Configuration", "glyphicon glyphicon-th-list",
                 "/panels/configuration_panel.xhtml", 100, null);
 
         Menu homePanelMenu = new Menu("Home", "fa fa-cube",
                 "/panels/home_panel.xhtml", 0, null);
 
-        Menu manageEntitiesCategory = new Menu("Manage Entities", "glyphicon glyphicon-home", 10,
+        Menu manageEntitiesCategory = new Menu("Manage Entities", "glyphicon glyphicon-home", 100,
                 null, Arrays.asList(new Menu[]{
                 manageAccountPanelMenu,
                 manageNaturalPersonPanelMenu,
                 manageRolePanelMenu,
                 manageDocumentPanelMenu,
                 managePanelPanelMenu,
-                manageMenuPanelMenu
+                manageMenuPanelMenu,
+                manageEMailPanelMenu,
+                manageResetPasswordTokenPanelMenu
         }));
 
         Menu configurationCategoryMenu = new Menu("Configuration",
@@ -129,7 +142,9 @@ public class AppInitializer implements InitializingBean, DisposableBean {
                         manageDocumentPanelMenu.getPanel(),
                         managePanelPanelMenu.getPanel(),
                         manageMenuPanelMenu.getPanel(),
-                        configurationPanelMenu.getPanel()
+                        configurationPanelMenu.getPanel(),
+                        manageEMailPanelMenu.getPanel(),
+                        manageResetPasswordTokenPanelMenu.getPanel()
                 }));
 
         Role userRole = new Role("User",

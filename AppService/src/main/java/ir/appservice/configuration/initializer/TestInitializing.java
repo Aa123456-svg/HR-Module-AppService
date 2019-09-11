@@ -1,21 +1,18 @@
 package ir.appservice.configuration.initializer;
 
 
-import ir.appservice.model.entity.application.Account;
-import ir.appservice.model.service.AccountService;
+import ir.appservice.model.entity.domain.Document;
+import ir.appservice.model.service.DocumentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 
-import javax.persistence.EntityGraph;
-import javax.persistence.EntityManager;
-import javax.persistence.Subgraph;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 
 //@Configuration
 public class TestInitializing implements InitializingBean {
@@ -23,42 +20,53 @@ public class TestInitializing implements InitializingBean {
     private final Logger logger = LoggerFactory.getLogger(TestInitializing.class);
 
     @Autowired
-    private EntityManager entityManager;
+    private DocumentService documentService;
+
+//    @Autowired
+//    private EntityManager entityManager;
 
     @Autowired
-    private AccountService accountService;
+    private JavaMailSender javaMailSender;
 
-    private Marshaller marshaller;
-    private Unmarshaller unmarshaller;
+//    private Marshaller marshaller;
+//    private Unmarshaller unmarshaller;
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        Account account = accountService.lazyGet("XXX", "roles.panels", "");
-        logger.trace("Account: {}", account);
-        logger.trace("Roles: {}", account.getRoles());
-        account.getRoles().forEach(role -> {
-            logger.trace("panel: {}", role.getPanels());
-        });
-
-//        f2();
+        f3();
     }
 
-    private void f2() {
-        logger.trace("f2");
-        EntityGraph<Account> graph = entityManager.createEntityGraph(Account.class);
-        Subgraph roleGraph = graph.addSubgraph("roles");
-        roleGraph.addSubgraph("panels");
-//        roleGraph.addAttributeNodes("panels");
+    private void f3() throws MessagingException {
+        logger.trace("Sending Test Email...");
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+        helper.setTo("gharne_25@yahoo.com");
+        helper.setText("<html><body>Here is a cat picture! <img src='cid:id101'/><body></html>", true);
+        helper.setSubject("Hi");
 
-        Map<String, Object> hints = new HashMap();
-        hints.put("javax.persistence.loadgraph", graph);
-        logger.trace("Graph: {}", graph.getAttributeNodes());
+        Document attachment = documentService.get("10c16a0f-744c-402d-9a5f-4f5d6ce659fd");
+        helper.addAttachment(attachment.getDisplayName(), new ByteArrayResource(attachment.getData()));
 
-        Account account = entityManager.find(Account.class, UUID.fromString("XXX"), hints);
-        logger.trace("Account: {}", account);
-        logger.trace("Roles: {}", account.getRoles());
-        account.getRoles().forEach(role -> logger.trace("panel: {}", role.getPanels()));
+        logger.trace("Test Email {} was sent.", mimeMessage);
+        javaMailSender.send(mimeMessage);
     }
+
+//    private void f2() {
+//        logger.trace("f2");
+//        EntityGraph<Account> graph = entityManager.createEntityGraph(Account.class);
+//        Subgraph roleGraph = graph.addSubgraph("roles");
+//        roleGraph.addSubgraph("panels");
+////        roleGraph.addAttributeNodes("panels");
+//
+//        Map<String, Object> hints = new HashMap();
+//        hints.put("javax.persistence.loadgraph", graph);
+//        logger.trace("Graph: {}", graph.getAttributeNodes());
+//
+//        Account account = entityManager.find(Account.class, UUID.fromString("XXX"), hints);
+//        logger.trace("Account: {}", account);
+//        logger.trace("Roles: {}", account.getRoles());
+//        account.getRoles().forEach(role -> logger.trace("panel: {}", role.getPanels()));
+//    }
 
     //
 //    private void initializeApplication() {

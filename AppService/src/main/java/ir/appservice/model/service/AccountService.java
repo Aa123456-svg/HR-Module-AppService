@@ -1,8 +1,12 @@
 package ir.appservice.model.service;
 
 import ir.appservice.configuration.exception.DuplicateEntityException;
+import ir.appservice.configuration.exception.InvalidEmailException;
+import ir.appservice.configuration.exception.NotFoundEntityException;
 import ir.appservice.model.entity.BaseEntity;
 import ir.appservice.model.entity.application.Account;
+import ir.appservice.model.entity.application.Email;
+import ir.appservice.model.entity.application.ResetPasswordToken;
 import ir.appservice.model.entity.application.Role;
 import ir.appservice.model.entity.application.ui.Menu;
 import ir.appservice.model.entity.application.ui.Panel;
@@ -10,18 +14,20 @@ import ir.appservice.model.repository.AccountRepository;
 import ir.appservice.view.beanComponents.SessionBean;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.ApplicationScope;
 
+import javax.mail.MessagingException;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -30,17 +36,27 @@ import java.util.stream.Collectors;
 @ApplicationScope
 public class AccountService extends CrudService<Account> implements AuthenticationProvider {
 
-    @Autowired
     private SessionBean sessionBean;
-    @Autowired
     private Pattern emailPattern;
-    @Autowired
     private Pattern mobilePattern;
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private EMailService eMailService;
+    private ResetPasswordTokenService resetPasswordTokenService;
+    private Environment env;
 
-    public AccountService(AccountRepository accountRepository) {
+    public AccountService(AccountRepository accountRepository, SessionBean sessionBean, Pattern emailPattern,
+                          Pattern mobilePattern, BCryptPasswordEncoder bCryptPasswordEncoder,
+                          EMailService eMailService,
+                          ResetPasswordTokenService resetPasswordTokenService,
+                          Environment env) {
         super(accountRepository, Account.class);
+        this.sessionBean = sessionBean;
+        this.emailPattern = emailPattern;
+        this.mobilePattern = mobilePattern;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.eMailService = eMailService;
+        this.resetPasswordTokenService = resetPasswordTokenService;
+        this.env = env;
     }
 
     public boolean existsByAccountNameIgnoreCase(String accountName) {
@@ -148,9 +164,7 @@ public class AccountService extends CrudService<Account> implements Authenticati
     @Override
     public Account add(Account account) {
         if (account.getPassword() == null || account.getPassword().trim().isEmpty()) {
-            account.setPassword(bCryptPasswordEncoder.encode(RandomStringUtils.randomAlphabetic(8)));
-        } else {
-            account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
+            account.setPassword(RandomStringUtils.randomAlphabetic(8));
         }
 
         if (getAccountRepository().existsByAccountNameIgnoreCase(account.getAccountName())) {
@@ -158,6 +172,47 @@ public class AccountService extends CrudService<Account> implements Authenticati
         }
 
         return super.add(account);
+    }
+
+    public void authenticate(String loginId, String password) throws AuthenticationException {
+        logger.trace(String.format("Authenticating: %s, password: %s", loginId, password));
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginId, password);
+        Authentication auth = authenticate(authenticationToken);
+        SecurityContextHolder.getContext().setAuthentication(auth);
+    }
+
+    public void resetPasswordSendMail(String email) throws NotFoundEntityException, MessagingException {
+        Account account = getAccountRepository().findByEmailIgnoreCase(email);
+        if (account == null) {
+            throw new NotFoundEntityException(
+                    String.format("Account with such email \"%s\" was not found!", email));
+        }
+
+        if (!emailPattern.matcher(account.getEmail()).matches()) {
+            throw new InvalidEmailException(
+                    String.format("Seems email \"%s\" is not valid! Please communicate with " +
+                                    "\"%s\""
+                            , account.getEmail(), env.getProperty("spring.mail.username")));
+        }
+
+        ResetPasswordToken rpt = new ResetPasswordToken();
+        rpt.setAccount(account);
+        rpt.setToken(RandomStringUtils.randomAlphabetic(64));
+        rpt.setDisplayName("Reset Password Token");
+        resetPasswordTokenService.add(rpt);
+
+        Email resetPassword = new Email();
+        resetPassword.setMailFrom(env.getProperty("spring.mail.username"));
+        resetPassword.setMailTo(account.getEmail());
+        resetPassword.setSubject("Reset Password");
+        resetPassword.setText(
+                String.format("Hi dear %s, you can go through <a href='%s'>this</a> link to reset " +
+                                "your password.", account.getAccountName(),
+                        "http://localhost:8001/resetPassword?token=" + rpt.getToken())
+        );
+        eMailService.add(resetPassword);
+        eMailService.sendMail(resetPassword);
+        edit(account);
     }
 
     public Account loginByAny(String loginId, String password) throws UsernameNotFoundException {
@@ -176,8 +231,8 @@ public class AccountService extends CrudService<Account> implements Authenticati
             logger.info("Check by account name ... {}", account);
         }
 
-        if (account != null) {
-// && bCryptPasswordEncoder.matches(password, account.getPassword())
+        if (account != null && bCryptPasswordEncoder.matches(password, account.getPassword())) {
+
             logger.info("Authenticated account: " + account);
 
             return getWithRolesAndPanelsAndMenus(account.getId());

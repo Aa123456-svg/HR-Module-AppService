@@ -52,6 +52,7 @@ public class AppConfiguration implements WebMvcConfigurer {
         registry.addViewController("/index").setViewName("/index.xhtml");
         registry.addViewController("/signin").setViewName("/signin.xhtml");
         registry.addViewController("/dashboard").setViewName("/dashboard.xhtml");
+        registry.addViewController("/resetPassword").setViewName("/resetPassword.xhtml");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 
@@ -117,6 +118,42 @@ public class AppConfiguration implements WebMvcConfigurer {
 
         return panelsResources;
     }
+
+//    @Bean
+//    public JavaMailSender appMailSender() {
+//        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+//        mailSender.setHost(env.getProperty("spring.mail.host"));
+//        mailSender.setPort(Integer.valueOf(env.getProperty("spring.mail.port")));
+//
+//        mailSender.setUsername(env.getProperty("spring.mail.username"));
+//        mailSender.setPassword(env.getProperty("spring.mail.password"));
+//
+//        Properties props = mailSender.getJavaMailProperties();
+//        props.put("mail.transport.protocol", "smtp");
+//        props.put("mail.smtp.auth", "true");
+//        props.put("mail.smtp.starttls.enable", "true");
+//        props.put("mail.debug", "true");
+//
+//        return mailSender;
+//    }
+//
+//    @Bean
+//    public JavaMailSender GMailSender() {
+//        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+//        mailSender.setHost("smtp.gmail.com");
+//        mailSender.setPort(587);
+//
+//        mailSender.setUsername("my.gmail@gmail.com");
+//        mailSender.setPassword("password");
+//
+//        Properties props = mailSender.getJavaMailProperties();
+//        props.put("mail.transport.protocol", "smtp");
+//        props.put("mail.smtp.auth", "true");
+//        props.put("mail.smtp.starttls.enable", "true");
+//        props.put("mail.debug", "true");
+//
+//        return mailSender;
+//    }
 
 }
 

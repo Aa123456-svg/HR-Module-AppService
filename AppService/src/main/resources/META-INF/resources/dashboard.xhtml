@@ -11,13 +11,11 @@
     </f:metadata>
 
     <ui:define name="head">
-        <p:growl id="MESSAGE_BOX" showDetail="true" sticky="false" life="5000">
-            <p:autoUpdate/>
-        </p:growl>
-        <p:ajaxExceptionHandler id="exception" type="java.lang.Throwable"
-                                update="MESSAGE_BOX"
-                                onexception=""
-        />
+        <p:growl id="MESSAGE_BOX" showDetail="true" sticky="false" life="5000" autoUpdate="true"/>
+        <!--        <p:ajaxExceptionHandler id="exception" type="java.lang.Throwable"-->
+        <!--                                update="MESSAGE_BOX"-->
+        <!--                                onexception=""-->
+        <!--        />-->
         <title>#{environment.getProperty('app.name')}</title>
 
     </ui:define>

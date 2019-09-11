@@ -1,12 +1,11 @@
 package ir.appservice.view.beanComponents;
 
+import ir.appservice.configuration.exception.InvalidEmailException;
+import ir.appservice.configuration.exception.NotFoundEntityException;
 import ir.appservice.model.service.AccountService;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -24,28 +23,33 @@ public class AuthenticationBean extends BaseBean {
 
     public AuthenticationBean(AccountService accountService) {
         this.accountService = accountService;
-        logger.trace("Initializing");
     }
 
     public void authenticate() {
-        logger.trace(String.format("Authenticating: %s, password: %s", loginId, password));
 
-        Authentication auth;
         try {
-            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginId, password);
-            auth = accountService.authenticate(authenticationToken);
-            SecurityContextHolder.getContext().setAuthentication(auth);
-
+            accountService.authenticate(loginId, password);
             logger.trace(String.format("Authenticated %s and redirecting ...", loginId));
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/dashboard");
-
             info("Welcome :)", "Welcome to home...", null);
-
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/dashboard");
         } catch (AuthenticationException bce) {
             error("You are not authenticated!", bce.getMessage(), null);
         } catch (Exception e) {
             e.printStackTrace();
             fatal("Server Error!", e.getMessage(), null);
+        }
+    }
+
+    public void restPasswordSendMail() {
+
+        try {
+            accountService.resetPasswordSendMail(loginId);
+            info("Done", "Reset password link sent to mail account: " + loginId, null);
+        } catch (NotFoundEntityException | InvalidEmailException e) {
+            warn("UnSuccessful", e.getMessage(), null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fatal("Server Error", "If this error persisted, please contact administrator.", null);
         }
     }
 

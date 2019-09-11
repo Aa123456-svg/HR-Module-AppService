@@ -3,6 +3,7 @@ package ir.appservice.controller;
 import ir.appservice.model.entity.domain.Document;
 import ir.appservice.model.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,8 @@ import java.io.IOException;
 import java.util.List;
 
 @RequestMapping("/document")
-@org.springframework.stereotype.Controller
-public class Controller extends BaseController {
+@Controller
+public class DocumentController extends BaseController {
 
     @Autowired
     private DocumentService documentService;

@@ -30,6 +30,10 @@ public abstract class CrudService<T extends BaseEntity> {
         this.clazz = clazz;
     }
 
+    public boolean existById(String id) {
+        return this.crudRepository.existsById(id);
+    }
+
     public List<T> addAll(Collection<T> items) {
         return this.crudRepository.saveAll(items);
     }
