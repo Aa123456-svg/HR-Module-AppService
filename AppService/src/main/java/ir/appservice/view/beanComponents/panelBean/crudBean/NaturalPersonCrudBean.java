@@ -3,7 +3,6 @@ package ir.appservice.view.beanComponents.panelBean.crudBean;
 import ir.appservice.model.entity.domain.NaturalPerson;
 import ir.appservice.model.service.CrudService;
 import ir.appservice.model.service.DocumentService;
-import ir.appservice.view.beanComponents.panelBean.BaseLazyCrudBean;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.event.FileUploadEvent;

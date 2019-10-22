@@ -2,7 +2,6 @@ package ir.appservice.view.beanComponents.panelBean.crudBean;
 
 import ir.appservice.model.entity.application.ResetPasswordToken;
 import ir.appservice.model.service.ResetPasswordTokenService;
-import ir.appservice.view.beanComponents.panelBean.BaseLazyCrudBean;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;

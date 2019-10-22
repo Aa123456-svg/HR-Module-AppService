@@ -34,8 +34,8 @@
                                  filterMatchMode="contains"
                 >
                     <f:selectItem
-                            itemValue="#{panelCrudBean.appLazyDataModel.item.resourceLocation==null?'':panelCrudBean.appLazyDataModel.item.resourceLocation}"
-                            itemLabel="#{panelCrudBean.appLazyDataModel.item.resourceLocation==null?'Select':panelCrudBean.appLazyDataModel.item.resourceLocation}"
+                            itemValue="#{panelCrudBean.appLazyDataModel.item.resourceLocation}"
+                            itemLabel="#{panelCrudBean.appLazyDataModel.item.resourceLocation==null?'Select Resource Location':panelCrudBean.appLazyDataModel.item.resourceLocation}"
                     />
                     <f:selectItems value="#{panelsResources.entrySet()}" var="rs"
                                    itemLabel="#{rs.key}" itemValue="#{rs.key}"
@@ -55,10 +55,9 @@
                                  filterMatchMode="contains"
                 >
                     <f:selectItem
-                            itemValue="#{panelCrudBean.appLazyDataModel.item.menu==null?'':panelCrudBean.appLazyDataModel.item.menu}"
-                            itemLabel="#{panelCrudBean.appLazyDataModel.item.menu==null?'Select':panelCrudBean.appLazyDataModel.item.menu.displayName}"
+                            itemValue="#{panelCrudBean.appLazyDataModel.item.menu}"
+                            itemLabel="#{panelCrudBean.appLazyDataModel.item.menu==null?'Select Menu':panelCrudBean.appLazyDataModel.item.menu.displayName}"
                     />
-                    <f:selectItem itemValue="" itemLabel="None"/>
                     <f:selectItems value="#{menuService.listWithoutPanel()}" var="m"
                                    itemValue="#{m}"
                                    itemLabel="#{m.displayName}"

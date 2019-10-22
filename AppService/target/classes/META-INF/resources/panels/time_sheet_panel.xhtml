@@ -1,10 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
 >
+    <style>
+        .label {
+            margin: 3pt;
+        }
 
+        .lowAttendance {
+            background-color: #fcfca4;
+        }
+
+        .highAttendance {
+            background-color: orange;
+        }
+
+        .rejected {
+            background-color: red;
+        }
+
+        .approved {
+            background-color: forestgreen;
+        }
+    </style>
+
+    <p:importConstants type="ir.appservice.model.entity.BaseEntity"/>
+    <p:importConstants type="ir.appservice.model.entity.domain.TimeSheet"/>
+    <p:importConstants type="ir.appservice.model.entity.domain.TimeAttendance"/>
+
+    <h:form prependId="false">
+        <p:panelGrid columns="3" layout="grid">
+            <p:row>
+                <p:outputLabel for="@next" value="Manager"/><br/>
+                <p:selectOneMenu id="ITEM_DIALOG_ITEM_EMPLOYEE"
+                                 label="Manager"
+                                 value="#{timeSheetPanelBean.employee}"
+                                 converter="#{employeeConverter}"
+                                 converterMessage="Employee Conversion Failed!"
+                                 effect="fade"
+                                 filter="true"
+                                 filterMatchMode="contains"
+                >
+                    <p:ajax event="change" listener="#{timeSheetPanelBean.initTimSheet}"
+                            update="@form"/>
+                    <f:selectItem
+                            itemValue="#{timeSheetPanelBean.employee}"
+                            itemLabel="#{timeSheetPanelBean.employee==null?'Select Employee':timeSheetPanelBean.employee.displayName}"/>
+                    <f:selectItems
+                            value="#{timeSheetPanelBean.subOrdinates}"
+                            var="temp"
+                            itemValue="#{temp}"
+                            itemLabel="#{temp.displayName}"
+
+                    />
+
+                </p:selectOneMenu>
+            </p:row>
+            <p:row>
+                <p:outputLabel for="@next" value="Date"/><br/>
+                <p:datePicker id="ITEM_DIALOG_ITEM_DATE"
+                              value="#{timeSheetPanelBean.timeSheetDate}"
+                              pattern="yyyy/MM"
+                              autocomplete="false"
+                              view="month"
+                              yearRange="2000:2030"
+                              styleClass=""
+                              yearNavigator="true"
+                              monthNavigator="true"
+                              showOtherMonths="true"
+                              showButtonBar="true"
+                              showOnFocus="true"
+                              readonlyInput="true"
+                >
+                    <p:ajax event="dateSelect" listener="#{timeSheetPanelBean.initTimSheet}"
+                            update="@form"/>
+                </p:datePicker>
+            </p:row>
+            <p:row rendered="#{timeSheetPanelBean.timeSheet!=null}">
+                <br/>
+                <p:commandLink title="Edit Time Sheet"
+                               update="TIME_SHEET_TABLE"
+                               style="margin-right: 10pt"
+                               actionListener="#{timeSheetPanelBean.saveChanges}"
+                >
+                    <i class="fa fa-save fa-2x"/>
+                </p:commandLink>
+
+                <p:commandLink title="Add Missed Time"
+                               actionListener="#{timeSheetPanelBean.newInstance}"
+                               oncomplete="PF('TIME_ATTENDANCE_DIALOG').show()">
+                    <i class="glyphicon glyphicon-time" style="font-size:25px;"/>
+                </p:commandLink>
+            </p:row>
+
+        </p:panelGrid>
+
+        <hr/>
+
+        <p:dataTable id="TIME_SHEET_TABLE"
+                     widgetVar="TIME_SHEET_TABLE"
+                     stickyHeader="true"
+
+                     rendered="#{timeSheetPanelBean.timeSheet != null}"
+                     value="#{timeSheetPanelBean.timeSheet.dayAttendances}"
+                     var="item"
+                     rowStyleClass="#{timeSheetPanelBean.rowStyleClass(item)}"
+                     rowKey="#{item.id}"
+        >
+
+            <f:facet name="header">
+                <p:panelGrid columns="2" layout="grid">
+                    <p:outputLabel value="Status:"/>
+                    <p:splitButton rendered="#{timeSheetPanelBean.manager}"
+                                   value="#{BaseEntity.OBJECT_STATUS.get(timeSheetPanelBean.timeSheet.status)}"
+                                   icon="fa fa-#{timeSheetPanelBean.timeSheet.status==TimeSheet.APPROVE_STATUS?'check':'remove'}"
+                    >
+                        <p:menuitem
+                                value="#{BaseEntity.OBJECT_STATUS.get(TimeSheet.APPROVE_STATUS)}"
+                                action="#{timeSheetPanelBean.changeTimeSheetStatus(TimeSheet.APPROVE_STATUS)}"
+                                update="TIME_SHEET_TABLE"
+                                icon="fa fa-check"/>
+                        <p:menuitem value="#{BaseEntity.OBJECT_STATUS.get(TimeSheet.REJECT_STATUS)}"
+                                    action="#{timeSheetPanelBean.changeTimeSheetStatus(TimeSheet.REJECT_STATUS)}"
+                                    update="TIME_SHEET_TABLE"
+                                    icon="fa fa-remove"/>
+                    </p:splitButton>
+                    <p:outputLabel
+                            styleClass="label label-#{timeSheetPanelBean.timeSheet.status==TimeSheet.APPROVE_STATUS?'success':'warning'}"
+                            value="#{BaseEntity.OBJECT_STATUS.get(timeSheetPanelBean.timeSheet.status)}"
+                            rendered="#{!timeSheetPanelBean.manager}"
+                    />
+
+                    <p:outputLabel
+                            value="Commnent"/>
+                    <p:inputTextarea autoResize="true"
+                                     value="#{timeSheetPanelBean.timeSheet.description}">
+                        <p:ajax event="change"/>
+                    </p:inputTextarea>
+
+                    <p:outputLabel value="Total Hours: "/>
+                    <p:outputLabel
+                            value="#{timeSheetPanelBean.timeSheet.totalHours()} H"
+                            styleClass="label label-info"/>
+                    <p:outputLabel value="Total Extra Hours: "/>
+                    <p:outputLabel
+                            value="#{timeSheetPanelBean.timeSheet.totalExtraHours()} H"
+                            styleClass="label label-info"/>
+                </p:panelGrid>
+            </f:facet>
+
+            <p:column headerText="Month Days" width="100">
+                <p:outputLabel value="#{item.dateOccurred}" styleClass="">
+                    <f:convertDateTime pattern="yy/MM/dd"/>
+                </p:outputLabel>
+            </p:column>
+
+            <p:column headerText="In/Out">
+                <p:repeat value="#{item.timeAttendances}" var="ta">
+                    <p:outputLabel styleClass="label label-#{ta.active?'primary':'default'}"
+                                   title="#{ta.dateOccurred}">
+                        <p:commandLink rendered="#{ta.active}"
+                                       actionListener="#{timeSheetPanelBean.removeTimeAttendance(ta)}"
+                                       update="TIME_SHEET_TABLE"
+                        >
+                            <i class="glyphicon glyphicon-remove"/>
+                        </p:commandLink>
+                        <p:commandLink rendered="#{!ta.active}"
+                                       actionListener="#{timeSheetPanelBean.recycle(ta)}"
+                                       update="TIME_SHEET_TABLE"
+                        >
+                            <i class="glyphicon glyphicon-refresh"/>
+                        </p:commandLink>
+                        <p:outputLabel value="#{ta.dateOccurred}">
+                            <f:convertDateTime pattern="HH:mm"/>
+                        </p:outputLabel>
+                    </p:outputLabel>
+                </p:repeat>
+            </p:column>
+
+            <p:column headerText="Total Hours" width="90">
+                <p:outputLabel styleClass="#{item.isDayAttendanceEnough()?'':'fa fa-warning'}"
+                               value="#{item.totalHours} H"/>
+            </p:column>
+
+            <p:column headerText="Extra Hours" width="90">
+                <p:outputLabel styleClass="#{item.isDayAttendanceEnough()?'':'fa fa-warning'}"
+                               value="#{item.extraHours} H"/>
+            </p:column>
+
+            <p:column headerText="Comment" width="400">
+                <p:inputTextarea autoResize="true" value="#{item.description}">
+                    <p:ajax event="blur"/>
+                </p:inputTextarea>
+            </p:column>
+
+        </p:dataTable>
+    </h:form>
+
+    <p:dialog id="TIME_ATTENDANCE_DIALOG"
+              widgetVar="TIME_ATTENDANCE_DIALOG"
+              showHeader="false"
+              responsive="true"
+              header="Time Attendance"
+              modal="true"
+              resizable="false"
+              closeOnEscape="true"
+              showEffect="puff"
+              hideEffect="explode"
+    >
+        <h:form prependId="false">
+            <p:datePicker value="#{timeSheetPanelBean.timeAttendance.dateOccurred}"
+                          inline="true"
+            />
+            <p:message for="@previous" display="icon"/>
+            <hr/>
+            <p:knob min="00" max="23" step="1"
+                    value="#{timeSheetPanelBean.timeAttendance.dateOccurred.hours}"
+                    height="50"
+                    width="50"
+                    labelTemplate="{value} H"/>
+            <p:knob min="00" max="60" step="1"
+                    value="#{timeSheetPanelBean.timeAttendance.dateOccurred.minutes}"
+                    height="50" width="50"
+                    labelTemplate="{value} min"/>
+            <hr/>
+            <p:commandLink title="Save"
+                           class="fa fa-save fa-2x"
+                           style="font-size: 25px"
+                           oncomplete="PF('TIME_ATTENDANCE_DIALOG').hide();"
+                           update="@form, TIME_SHEET_TABLE"
+                           actionListener="#{timeSheetPanelBean.addTimeAttendance()}"
+            >
+            </p:commandLink>
+        </h:form>
+    </p:dialog>
 
     <f:facet name="Options">
         <p:menu>

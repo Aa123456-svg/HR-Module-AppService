@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html
         xmlns:p="http://primefaces.org/ui"
-        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
 >
+
+<p:importConstants type="ir.appservice.model.entity.BaseEntity"/>
 
 <h:head>
     <h:outputStylesheet name="theme.css" library="primefaces-admin"/>
 </h:head>
 <h:body>
     <h:form prependId="false">
-        <p:commandButton icon="fa fa-sign-in" iconPos="right"
+        <p:commandButton icon="fa fa-sign-in" iconPos="left"
                          oncomplete="PF('INDEX_LOGIN_BAR').show()"
                          value="Sing In"/>
+
+        <p:commandButton icon="fa fa-sign-in" iconPos="right"
+                         oncomplete="PF('TIME_ATTENDANCE_DIALOG').show()"
+                         value="Add Time Attendance"/>
         <p:sidebar id="INDEX_LOGIN_BAR" widgetVar="INDEX_LOGIN_BAR" position="top">
             <p:growl id="MESSAGE_BOX" showDetail="true" sticky="false" life="5000">
                 <p:autoUpdate/>
@@ -53,6 +59,63 @@
 
             </h:panelGrid>
         </p:sidebar>
+
+        <p:dialog id="TIME_ATTENDANCE_DIALOG"
+                  widgetVar="TIME_ATTENDANCE_DIALOG"
+                  showHeader="false"
+                  responsive="true"
+                  header="Time Attendance"
+                  modal="true"
+                  resizable="false"
+                  closeOnEscape="true"
+                  showEffect="puff"
+                  hideEffect="explode"
+        >
+            <p:inputText value="#{recordTimeAttendanceBean.timeAttendance.displayName}"
+                         placeholder="Time Attendance Name"/>
+            <hr/>
+            <p:selectOneMenu label="Manager"
+                             value="#{recordTimeAttendanceBean.timeAttendance.employee}"
+                             converter="#{employeeConverter}"
+                             converterMessage="Employee Conversion Failed!"
+                             effect="fade"
+                             filter="true"
+                             filterMatchMode="contains"
+            >
+                <f:selectItem
+                        itemValue="#{recordTimeAttendanceBean.timeAttendance.employee}"
+                        itemLabel="#{recordTimeAttendanceBean.timeAttendance.employee==null?'Select Employee':recordTimeAttendanceBean.timeAttendance.employee.displayName}"/>
+                <f:selectItems
+                        value="#{employeeRepository.findAllByStatusIs(BaseEntity.ACTIVE_STATUS)}"
+                        var="temp"
+                        itemValue="#{temp}"
+                        itemLabel="#{temp.displayName}"/>
+            </p:selectOneMenu>
+            <hr/>
+            <p:datePicker value="#{recordTimeAttendanceBean.timeAttendance.dateOccurred}"
+                          inline="true"
+            />
+            <p:message for="@previous" display="icon"/>
+            <hr/>
+            <p:knob min="00" max="23" step="1"
+                    value="#{recordTimeAttendanceBean.timeAttendance.dateOccurred.hours}"
+                    height="50"
+                    width="50"
+                    labelTemplate="{value} H"/>
+            <p:knob min="00" max="60" step="1"
+                    value="#{recordTimeAttendanceBean.timeAttendance.dateOccurred.minutes}"
+                    height="50" width="50"
+                    labelTemplate="{value} min"/>
+            <hr/>
+            <p:commandLink title="Save"
+                           styleClass="fa fa-save fa-2x"
+                           style="font-size: 25px"
+                           oncomplete="PF('TIME_ATTENDANCE_DIALOG').hide();"
+                           update="@form"
+                           actionListener="#{recordTimeAttendanceBean.recordTimeAttendance()}"
+            >
+            </p:commandLink>
+        </p:dialog>
 
     </h:form>
 </h:body>

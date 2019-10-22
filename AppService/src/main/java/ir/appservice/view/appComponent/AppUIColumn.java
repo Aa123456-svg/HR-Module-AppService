@@ -247,4 +247,14 @@ public class AppUIColumn<T> implements UIColumn {
     public boolean isGroupRow() {
         return false;
     }
+
+    @Override
+    public String getExportHeaderValue() {
+        return null;
+    }
+
+    @Override
+    public String getExportFooterValue() {
+        return null;
+    }
 }

@@ -45,7 +45,8 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
                         "/signout",
                         "/error",
                         "/document/**/*",
-                        "/resetPassword.xhtml", "/resetPassword", "/resetPassword/**/*"
+                        "/resetPassword.xhtml", "/resetPassword", "/resetPassword/**/*",
+                        "/attendance", "/attendance/**/*"
                 ).permitAll()
                 .anyRequest().authenticated()
 

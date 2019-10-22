@@ -43,17 +43,17 @@ public class Menu extends BaseEntity {
     @XmlElement
     protected String icon;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @XmlElement
     @XmlIDREF
     protected Menu parent;
 
-    @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @XmlElement
     @XmlIDREF
     protected List<Menu> subMenus;
 
-    @OneToOne(mappedBy = "menu", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @OneToOne(mappedBy = "menu", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @XmlElement
     @XmlIDREF
     protected Panel panel;

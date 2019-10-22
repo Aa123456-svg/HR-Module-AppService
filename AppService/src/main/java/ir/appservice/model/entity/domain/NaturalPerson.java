@@ -31,14 +31,20 @@ public class NaturalPerson extends BaseEntity {
     protected String mobileNumber;
     @XmlElement
     protected Date birthDate;
-    @OneToOne(mappedBy = "naturalPerson", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "naturalPerson", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @XmlElement
     @XmlIDREF
     protected Account account;
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @XmlElement
     @XmlIDREF
     protected Document avatar;
+
+    @OneToOne(mappedBy = "naturalPerson", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+            CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @XmlElement
+    @XmlIDREF
+    protected Employee employee;
 
     public NaturalPerson(String displayName, String firstName, String lastName, String mobileNumber, Date birthDate, Account account, Document avatar) {
         this(displayName, firstName, lastName, mobileNumber, birthDate);
@@ -63,6 +69,13 @@ public class NaturalPerson extends BaseEntity {
         this.account = account;
         if (this.account != null) {
             this.account.setNaturalPerson(this);
+        }
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+        if (this.employee != null) {
+            this.employee.setNaturalPerson(this);
         }
     }
 }

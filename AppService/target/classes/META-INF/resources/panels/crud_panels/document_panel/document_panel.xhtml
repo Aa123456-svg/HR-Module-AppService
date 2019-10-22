@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns="http://www.w3.org/1999/xhtml"
 >
 
     <h:form prependId="false">
@@ -46,10 +46,9 @@
                         </div>
                     </div>
                     <div class="ui-g-12 ui-md-4">
-                        Total Result(s):
-                        <p:outputLabel
-                                value="#{documentCrudBean.appLazyDataModel.rowCount}"
-                                styleClass="label label-info" style="font-size: large"/>
+                        Total Result(s): <p:outputLabel
+                            value="#{documentCrudBean.appLazyDataModel.rowCount}"
+                            styleClass="label label-info" style="font-size: large"/>
                     </div>
                     <div class="ui-g-12 ui-md-4">
                         <p:commandLink id="ITEMS_TABLE_TOGGLER">

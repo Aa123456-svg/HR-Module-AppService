@@ -1,8 +1,8 @@
-<ui:composition xmlns:p="http://primefaces.org/ui"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:adm="http://github.com/adminfaces"
-                xmlns="http://www.w3.org/1999/xhtml"
                 template="#{layoutMB.template}"
 >
 
@@ -14,11 +14,9 @@
                 <h3><i class="fa fa-lock text-fatal"></i> #{adm['label.403.message']}</h3>
 
                 <p>
-                    #{adm['label.go-back']}
-                    <p:link style="text-decoration: underline"
-                            href="/index" value="Index"
-                            escape="false"/>
-                    .
+                    #{adm['label.go-back']} <p:link style="text-decoration: underline"
+                                                    href="/index" value="Index"
+                                                    escape="false"/>.
                 </p>
 
             </div>

@@ -5,6 +5,7 @@
                 xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
 >
     <p:importConstants type="ir.appservice.model.entity.application.ui.Menu"/>
+    <p:importConstants type="ir.appservice.model.entity.BaseEntity"/>
 
     <p:dialog id="EDIT_ITEM_DIALOG"
               header="Editing #{accountCrudBean.appLazyDataModel.item.displayName}"
@@ -71,11 +72,13 @@
                                  filterMatchMode="contains"
                 >
                     <f:selectItem
-                            itemValue="#{accountCrudBean.appLazyDataModel.item.naturalPerson==null?'':accountCrudBean.appLazyDataModel.item.naturalPerson}"
-                            itemLabel="#{accountCrudBean.appLazyDataModel.item.naturalPerson==null?'No Natural Person':accountCrudBean.appLazyDataModel.item.naturalPerson.displayName}"/>
-                    <f:selectItems value="#{naturalPersonService.listWithoutAccount()}" var="np"
-                                   itemValue="#{np}"
-                                   itemLabel="#{np.displayName}"/>
+                            itemValue="#{accountCrudBean.appLazyDataModel.item.naturalPerson}"
+                            itemLabel="#{accountCrudBean.appLazyDataModel.item.naturalPerson==null?'Select Natural Person':accountCrudBean.appLazyDataModel.item.naturalPerson.displayName}"/>
+                    <f:selectItems
+                            value="#{naturalPersonRepository.findAllByAccountIsNullAndStatusIs(BaseEntity.ACTIVE_STATUS)}"
+                            var="temp"
+                            itemValue="#{temp}"
+                            itemLabel="#{temp.displayName}"/>
                 </p:selectOneMenu>
                 <p:message for="@previous" display="text"/>
 

@@ -4,6 +4,7 @@ import ir.appservice.model.entity.BaseEntity;
 import ir.appservice.model.entity.application.ui.Menu;
 import ir.appservice.model.entity.application.ui.Panel;
 import ir.appservice.model.entity.domain.Document;
+import ir.appservice.model.entity.domain.Employee;
 import ir.appservice.model.entity.domain.NaturalPerson;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,12 +38,19 @@ public class Account extends BaseEntity {
     @XmlElement
     protected String mobileNumber;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @XmlElement
     @XmlIDREF
     protected NaturalPerson naturalPerson;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "account", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH,
+            CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @XmlElement
+    @XmlIDREF
+    protected Employee employee;
+
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @XmlElement
     @XmlIDREF
     protected Document avatar;
@@ -87,9 +95,24 @@ public class Account extends BaseEntity {
         setNaturalPerson(naturalPerson);
     }
 
+    public Account(String displayName, String accountName, String password, String email,
+                   String mobileNumber, NaturalPerson naturalPerson, Employee employee,
+                   Document avatar) {
+        this(displayName, accountName, password, email, mobileNumber, avatar);
+        setEmployee(employee);
+        setNaturalPerson(naturalPerson);
+    }
+
     public Account(String displayName, String accountName, String password, String email, String mobileNumber, NaturalPerson naturalPerson, Document avatar, List<Role> roles) {
         this(displayName, accountName, password, email, mobileNumber, naturalPerson, avatar);
         setRoles(roles);
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+        if (this.employee != null) {
+            this.employee.setAccount(this);
+        }
     }
 
     public void setRoles(List<Role> roles) {
@@ -106,7 +129,7 @@ public class Account extends BaseEntity {
         }
     }
 
-    public void setResetPasswordToken(List<ResetPasswordToken> resetPasswordTokens) {
+    public void setResetPasswordTokens(List<ResetPasswordToken> resetPasswordTokens) {
         this.resetPasswordTokens = resetPasswordTokens;
         if (this.resetPasswordTokens != null) {
             this.resetPasswordTokens.forEach(tokens -> tokens.setAccount(this));

@@ -28,13 +28,10 @@ public abstract class BaseEntity {
 
     public final static String ACTIVE_STATUS = "ACTIVE_STATUS";
     public final static String DE_ACTIVE_STATUS = "DE_ACTIVE_STATUS";
-    public static final Map<String, String> OBJECT_STATUS;
-
-    static {
-        OBJECT_STATUS = new HashMap();
-        OBJECT_STATUS.put(ACTIVE_STATUS, "Active");
-        OBJECT_STATUS.put(DE_ACTIVE_STATUS, "De Active");
-    }
+    public static final Map<String, String> OBJECT_STATUS = new HashMap() {{
+        put(ACTIVE_STATUS, "Active");
+        put(DE_ACTIVE_STATUS, "De Active");
+    }};
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +43,9 @@ public abstract class BaseEntity {
     @XmlElement
     protected String displayName;
     @XmlElement
-    protected String statue = ACTIVE_STATUS;
+    protected String description;
+    @XmlElement
+    protected String status = ACTIVE_STATUS;
     @CreationTimestamp
     @XmlElement
     protected Date registeredDate;
@@ -74,10 +73,19 @@ public abstract class BaseEntity {
 
         BaseEntity be = (BaseEntity) obj;
 
+//        && this.displayName.equals(be.getDisplayName()) && this.registeredDate.equals(be.getRegisteredDate())
         boolean equality =
-                this.id.equals(be.getId()) && this.displayName.equals(be.getDisplayName()) && this.registeredDate.equals(be.getRegisteredDate());
+                this.id != null ? this.id.equals(be.getId()) : be.getId() == null;
 
         return equality;
+    }
+
+    public boolean isActive() {
+        return this.status.equals(ACTIVE_STATUS);
+    }
+
+    public boolean isDeActive() {
+        return this.status.equals(DE_ACTIVE_STATUS);
     }
 
     @Override

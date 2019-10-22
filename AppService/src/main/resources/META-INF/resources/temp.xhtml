@@ -1,0 +1,56 @@
+<p:schedule id="TIME_SHEET_SCHEDULE" value="#{timeSheetPanelBean.scheduleModel}"
+            widgetVar="TIME_SHEET_SCHEDULE"
+            timeZone="#{timeSheetPanelBean.calendar.timeZone}"
+            displayEventEnd="true"
+>
+
+    <p:ajax event="dateSelect" listener="#{timeSheetPanelBean.onDateSelect}"
+            update="eventDetails"
+            oncomplete="PF('TMIE_SHEET_DIALOG').show();"/>
+    <p:ajax event="eventSelect" listener="#{timeSheetPanelBean.onEventSelect}"
+            update="eventDetails"
+            oncomplete="PF('TMIE_SHEET_DIALOG').show();"/>
+    <p:ajax event="eventMove" listener="#{timeSheetPanelBean.onEventMove}"/>
+    <p:ajax event="eventMove" listener="#{timeSheetPanelBean.onEventMove}"/>
+    <p:ajax event="eventResize" listener="#{timeSheetPanelBean.onEventResize}"/>
+
+</p:schedule>
+
+<p:dialog widgetVar="TMIE_SHEET_DIALOG" header="Event Details" showEffect="clip"
+          hideEffect="clip"
+          responsive="true" width="350">
+<p:panelGrid id="eventDetails" columns="2" layout="grid" styleClass="ui-fluid">
+    <p:outputLabel for="ATTENDANCE_TITLE" value="Title:"/>
+    <p:inputText id="ATTENDANCE_TITLE"
+                 value="#{timeSheetPanelBean.selectedScheduleEvent.title}"
+                 required="true"/>
+
+    <p:outputLabel for="ATTENDANCE_FROM" value="From:"/>
+    <p:calendar id="ATTENDANCE_FROM"
+                value="#{timeSheetPanelBean.selectedScheduleEvent.startDate}"
+                timeZone="#{timeSheetPanelBean.calendar.timeZone}"
+                pattern="#{timeSheetPanelBean.datePattern}"
+    />
+
+    <p:outputLabel for="ATTENDANCE_TO" value="To:"/>
+    <p:calendar id="ATTENDANCE_TO"
+                value="#{timeSheetPanelBean.selectedScheduleEvent.endDate}"
+                timeZone="#{timeSheetPanelBean.calendar.timeZone}"
+                pattern="#{timeSheetPanelBean.datePattern}"
+    />
+
+    <p:outputLabel for="ATTENDANCE_IS_ALL_DAY" value="All Day:"/>
+    <p:selectBooleanCheckbox id="ATTENDANCE_IS_ALL_DAY"
+                             value="#{timeSheetPanelBean.selectedScheduleEvent.allDay}"/>
+
+</p:panelGrid>
+<f:facet name="footer">
+    <div class="pull-right" style="padding: 5px">
+        <p:commandButton type="reset" value="Reset" styleClass="btn-success"/>
+        <p:spacer height="5"/>
+        <p:commandButton id="addButton" value="Save" styleClass="btn-primary"
+                         actionListener="#{timeSheetPanelBean.addEvent}"
+                         oncomplete="PF('TIME_SHEET_SCHEDULE').update();PF('TMIE_SHEET_DIALOG').hide();"/>
+    </div>
+</f:facet>
+</p:dialog>

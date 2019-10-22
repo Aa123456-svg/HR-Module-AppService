@@ -31,7 +31,7 @@ public class Panel extends BaseEntity {
     @XmlIDREF
     protected Menu menu;
 
-    @ManyToMany(mappedBy = "panels", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "panels", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @XmlElement
     @XmlIDREF
     protected List<Role> roles;

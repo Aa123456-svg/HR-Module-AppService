@@ -110,7 +110,7 @@ public abstract class AppLazyDataModel<T extends BaseEntity> extends LazyDataMod
     }
 
     protected Page<T> load(Pageable pageable, Map<String, Object> filters) {
-        return this.crudService.pagedList(pageable, filters);
+        return this.crudService.list(pageable, filters);
     }
 
     @Override

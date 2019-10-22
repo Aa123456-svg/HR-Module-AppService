@@ -1,11 +1,21 @@
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Test {
 
     public static void main(String[] args) {
-        System.out.println("%" + "AA" + "%");
+
+        System.out.println(String.format("%s", 3 + Double.valueOf(3.0/10)));
+
+//        TimeZone tz = TimeZone.getTimeZone("Asia/Tehran");
+//        System.out.println("Time Zone: " + tz);
+
+//        String[] id = TimeZone.getAvailableIDs();
+//        System.out.println("In TimeZone class available Ids are: ");
+//        for (int i = 0; i < id.length; i++) {
+//            System.out.println(id[i] + " === " + TimeZone.getTimeZone(id[i]));
+//        }
+
     }
 
     public static void fileSearch(File file, List<File> result) {

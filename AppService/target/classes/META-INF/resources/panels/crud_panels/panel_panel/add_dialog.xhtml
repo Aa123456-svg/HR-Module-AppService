@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
 >
     <p:importConstants type="ir.appservice.model.entity.application.ui.Menu"/>
 
@@ -35,8 +35,8 @@
                                  filterMatchMode="contains"
                 >
                     <f:selectItem
-                            itemValue="#{panelCrudBean.appLazyDataModel.item.resourceLocation==null?'':panelCrudBean.appLazyDataModel.item.resourceLocation}"
-                            itemLabel="#{panelCrudBean.appLazyDataModel.item.resourceLocation==null?'Select':panelCrudBean.appLazyDataModel.item.resourceLocation}"
+                            itemValue="#{panelCrudBean.appLazyDataModel.item.resourceLocation}"
+                            itemLabel="#{panelCrudBean.appLazyDataModel.item.resourceLocation==null?'Select Resource Location':panelCrudBean.appLazyDataModel.item.resourceLocation}"
                     />
                     <f:selectItems value="#{panelsResources.entrySet()}" var="rs"
                                    itemLabel="#{rs.key}" itemValue="#{rs.key}"
@@ -56,8 +56,8 @@
                                  filterMatchMode="contains"
                 >
                     <f:selectItem
-                            itemValue="#{panelCrudBean.appLazyDataModel.item.menu==null?'':panelCrudBean.appLazyDataModel.item.menu}"
-                            itemLabel="#{panelCrudBean.appLazyDataModel.item.menu==null?'Select':panelCrudBean.appLazyDataModel.item.menu.displayName}"
+                            itemValue="#{panelCrudBean.appLazyDataModel.item.menu}"
+                            itemLabel="#{panelCrudBean.appLazyDataModel.item.menu==null?'Select Menu':panelCrudBean.appLazyDataModel.item.menu.displayName}"
                     />
                     <f:selectItems value="#{menuService.listWithoutPanel()}" var="m"
                                    itemValue="#{m}"

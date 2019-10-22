@@ -9,9 +9,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.*;
-import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -79,7 +80,7 @@ public abstract class CrudService<T extends BaseEntity> {
         T temp;
         try {
             temp = (T) crudRepository.getOne(id);
-            temp.setStatue(T.ACTIVE_STATUS);
+            temp.setStatus(T.ACTIVE_STATUS);
             return (T) crudRepository.save(temp);
         } catch (EntityNotFoundException e) {
             throw new NotFoundEntityException(e.getMessage());
@@ -90,7 +91,7 @@ public abstract class CrudService<T extends BaseEntity> {
         T temp;
         try {
             temp = (T) crudRepository.getOne(id);
-            temp.setStatue(T.DE_ACTIVE_STATUS);
+            temp.setStatus(T.DE_ACTIVE_STATUS);
             return (T) crudRepository.save(temp);
         } catch (EntityNotFoundException e) {
             throw new NotFoundEntityException(e.getMessage());
@@ -128,84 +129,20 @@ public abstract class CrudService<T extends BaseEntity> {
         return (T) crudRepository.getById(id);
     }
 
-    public T lazyGet(String id, String... attributes) {
-        logger.trace("Fetching: {} of {}", Arrays.asList(attributes), clazz);
-        EntityGraph<T> graph = entityManager.createEntityGraph(clazz);
-        for (String att : attributes) {
-            String[] split = att.split("\\.");
-            logger.trace("Att: {} => {}", att, Arrays.asList(split));
-            Subgraph sg = null;
-            for (int i = 0; i < split.length; i++) {
-                if (i == 0) {
-                    logger.trace("Root Node: {}", split[i]);
-                    sg = graph.addSubgraph(split[i]);
-                } else {
-                    logger.trace("Node: {}", split[i]);
-                    sg = sg.addSubgraph(split[i]);
-                }
-            }
-        }
-
-        graph.getAttributeNodes().stream().forEach(attributeNode -> logger.trace("Graph:[{},{}," +
-                        "{}]",
-                attributeNode.getAttributeName(), attributeNode.getKeySubgraphs(), attributeNode.getSubgraphs()));
-
-        Map<String, Object> hints = new HashMap();
-        hints.put("javax.persistence.loadgraph", graph);
-
-        return entityManager.find(clazz, id, hints);
-    }
-
-    public T fullLazyGet(String id) {
-        List<String> fieldNames = new ArrayList<>();
-        for (Field field : clazz.getDeclaredFields()) {
-            if (field.getType().isAssignableFrom(BaseEntity.class)) {
-                fieldNames.add(field.getName());
-            }
-        }
-
-        logger.trace("Full lazy load: {}", fieldNames);
-        return lazyGet(id, fieldNames.toArray(new String[]{}));
-    }
-
-    private void addSubgraph() {
-
-    }
-
     public List<T> list() {
-        return crudRepository.findAllByDeleteDateIsNull();
+        return crudRepository.findAll();
     }
 
-    public List<T> list(Pageable pageable) {
-        return crudRepository.findAllByDeleteDateIsNull(pageable).getContent();
+    public List<T> list(Map<String, Object> filters) {
+        return crudRepository.findAll(getFilterSpecification(filters));
     }
 
-    public Page pagedList(Pageable pageable, Map<String, Object> filters) {
+    public Page<T> list(Pageable pageable) {
+        return crudRepository.findAll(pageable);
+    }
+
+    public Page<T> list(Pageable pageable, Map<String, Object> filters) {
         return crudRepository.findAll(getFilterSpecification(filters), pageable);
-    }
-
-    public Page pagedActiveList(Pageable pageable, Map<String, Object> filters) {
-        return crudRepository.findAll(getNotDeletedSpecifications().and(getFilterSpecification(filters)), pageable);
-    }
-
-    public Page pagedDeletedList(Pageable pageable, Map<String, Object> filters) {
-        return crudRepository.findAll(getDeletedSpecifications().and(getFilterSpecification(filters)), pageable);
-    }
-
-    public List<T> listDeleted() {
-        return crudRepository.findAllByDeleteDateIsNotNull();
-    }
-
-    public List<T> listDeleted(Pageable pageable) {
-        return crudRepository.findAllByDeleteDateIsNotNull(pageable).getContent();
-    }
-
-    private Specification<T> getDeletedSpecifications() {
-        return (Root<T> root, CriteriaQuery<?> query, CriteriaBuilder builder) -> builder.isNotNull(root.get("deleteDate"));
-    }
-
-    private Specification<T> getNotDeletedSpecifications() {
-        return (Root<T> root, CriteriaQuery<?> query, CriteriaBuilder builder) -> builder.isNull(root.get("deleteDate"));
     }
 
     private Specification<T> getFilterSpecification(
@@ -236,27 +173,11 @@ public abstract class CrudService<T extends BaseEntity> {
         return builder.isTrue(builder.literal(true));
     }
 
-    private Specification<T> generateSpecificationFilter(Map<String, Object> filters) {
-        return (Specification<T>) (root, query, criteriaBuilder) -> {
-            filters.entrySet().stream()
-                    .filter(entry -> entry.getValue() != null)
-                    .forEach(entry -> {
-                        try {
-                            if (root.get(entry.getKey()).getJavaType() == String.class) {
-                                Predicate like = criteriaBuilder.like(root.get(entry.getKey()),
-                                        "%" + entry.getValue() + "%");
-                                query.where(like);
-                            } else {
-                                Predicate equal = criteriaBuilder.equal(root.get(entry.getKey()),
-                                        entry.getValue());
-                                query.where(equal);
-                            }
-                        } catch (Exception e) {
-                            logger.error(e.getMessage());
-                        }
-                    });
-            query.where(criteriaBuilder.isNull(root.get("deleteDate")));
-            return query.getGroupRestriction();
-        };
+    private Specification<T> getDeletedSpecifications() {
+        return (Root<T> root, CriteriaQuery<?> query, CriteriaBuilder builder) -> builder.isNotNull(root.get("deleteDate"));
+    }
+
+    private Specification<T> getNotDeletedSpecifications() {
+        return (Root<T> root, CriteriaQuery<?> query, CriteriaBuilder builder) -> builder.isNull(root.get("deleteDate"));
     }
 }

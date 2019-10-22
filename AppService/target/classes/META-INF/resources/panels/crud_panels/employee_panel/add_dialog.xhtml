@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+    <p:importConstants type="ir.appservice.model.entity.BaseEntity"/>
+
+    <p:dialog id="ADD_ITEM_DIALOG"
+              header="Add"
+              widgetVar="ADD_ITEM_DIALOG"
+              modal="true"
+              resizable="false"
+              closeOnEscape="true"
+              showEffect="puff"
+              hideEffect="explode"
+              minWidth="400"
+    >
+
+        <h:form prependId="false">
+            <h:panelGrid columns="3" cellpadding="50">
+
+                <p:outputLabel for="@next" value="Display Name"/>
+                <p:inputText id="ADD_ITEM_DIALOG_ITEM_DISPLAYNAME" required="true"
+                             value="#{employeeCrudBean.appLazyDataModel.item.displayName}"/>
+                <p:message for="@previous" display="text"/>
+
+                <p:outputLabel for="@next" value="Manager"/>
+                <p:selectOneMenu id="ADD_ITEM_DIALOG_ITEM_MANAGER"
+                                 label="Manager"
+                                 value="#{employeeCrudBean.appLazyDataModel.item.manager}"
+                                 converter="#{employeeConverter}"
+                                 converterMessage="Manager Conversion Failed!"
+                                 effect="fade"
+                                 filter="true"
+                                 var="manager"
+                                 filterMatchMode="contains"
+                >
+                    <f:selectItem
+                            itemValue="#{employeeCrudBean.appLazyDataModel.item.manager}"
+                            itemLabel="#{employeeCrudBean.appLazyDataModel.item.manager==null?'Select Manager':employeeCrudBean.appLazyDataModel.item.manager.displayName}"/>
+                    <f:selectItems
+                            value="#{employeeRepository.findAllByStatusIs(BaseEntity.ACTIVE_STATUS)}"
+                            var="temp"
+                            itemValue="#{temp}"
+                            itemLabel="#{temp.displayName}"/>
+                </p:selectOneMenu>
+                <p:message for="@previous" display="text"/>
+
+                <p:outputLabel for="@next" value="Account"/>
+                <p:selectOneMenu id="ADD_ITEM_DIALOG_ITEM_ACCOUNT"
+                                 label="Account"
+                                 value="#{employeeCrudBean.appLazyDataModel.item.account}"
+                                 converter="#{accountConverter}"
+                                 converterMessage="Account Conversion Failed!"
+                                 effect="fade"
+                                 filter="true"
+                                 var="account"
+                                 filterMatchMode="contains"
+                >
+                    <f:selectItem
+                            itemValue="#{employeeCrudBean.appLazyDataModel.item.account}"
+                            itemLabel="#{employeeCrudBean.appLazyDataModel.item.account==null?'Select Account':employeeCrudBean.appLazyDataModel.item.account.displayName}"/>
+                    <f:selectItems
+                            value="#{accountRepository.findAllByEmployeeIsNullAndStatusIs(BaseEntity.ACTIVE_STATUS)}"
+                            var="temp"
+                            itemValue="#{temp}"
+                            itemLabel="#{temp.displayName}"/>
+                </p:selectOneMenu>
+                <p:message for="@previous" display="text"/>
+
+                <p:outputLabel for="@next" value="Natural Person"/>
+                <p:selectOneMenu id="ADD_ITEM_DIALOG_ITEM_NATURAL_PERSON"
+                                 label="Natural Person"
+                                 value="#{employeeCrudBean.appLazyDataModel.item.naturalPerson}"
+                                 converter="#{naturalPersonConverter}"
+                                 converterMessage="Natural Person Conversion Failed!"
+                                 effect="fade"
+                                 filter="true"
+                                 var="naturalPerson"
+                                 filterMatchMode="contains"
+                >
+                    <f:selectItem
+                            itemValue="#{employeeCrudBean.appLazyDataModel.item.naturalPerson}"
+                            itemLabel="#{employeeCrudBean.appLazyDataModel.item.naturalPerson==null?'Select Natural Person':employeeCrudBean.appLazyDataModel.item.naturalPerson.displayName}"/>
+                    <f:selectItems
+                            value="#{naturalPersonRepository.findAllByEmployeeIsNullAndStatusIs(BaseEntity.ACTIVE_STATUS)}"
+                            var="temp"
+                            itemValue="#{temp}"
+                            itemLabel="#{temp.displayName}"/>
+                </p:selectOneMenu>
+                <p:message for="@previous" display="text"/>
+
+            </h:panelGrid>
+
+            <hr/>
+
+            <p:commandButton id="ADD_ITEM_BUTTON"
+                             value="Apply"
+                             action="#{employeeCrudBean.appLazyDataModel.add}"
+                             title="Apply Add"
+                             update="@form, ITEMS_TABLE"
+            />
+        </h:form>
+
+    </p:dialog>
+
+</ui:composition>

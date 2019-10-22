@@ -1,66 +1,54 @@
 package ir.appservice.model.converter;
 
 import ir.appservice.model.entity.BaseEntity;
-import ir.appservice.model.service.CrudService;
+import ir.appservice.model.repository.CrudRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
 
 public abstract class BaseConverter<T extends BaseEntity> implements Converter<T> {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
-    private CrudService<T> crudService;
+    private CrudRepository crudRepository;
     private Class<T> clazz;
 
-    public BaseConverter(Class<T> clazz, CrudService<T> crudService) {
-        this.crudService = crudService;
+    public BaseConverter(Class<T> clazz, CrudRepository crudRepository) {
+        this.crudRepository = crudRepository;
         this.clazz = clazz;
     }
 
     @Override
+    @Transactional
     public T getAsObject(FacesContext context, UIComponent component, String id) {
-
-        component.getAttributes().entrySet().stream().forEach(entry -> logger.trace("{}:{}", entry.getKey(), entry.getValue()));
-        logger.trace("getAsObject: {}", id);
-
-        if (id == null || id.trim().isEmpty()) {
-            return null;
-        }
-
+//        component.getAttributes().entrySet().stream().forEach(entry -> logger.warn("{}:{}", entry.getKey(), entry.getValue()));
+        T temp = null;
         try {
-            T temp = crudService.get(id);
-            logger.trace("To Object: {} -> {}", temp.getId(), clazz.getSimpleName());
-            return temp;
+            temp = (T) crudRepository.getById(id);
+            logger.trace("To {}: {} -> {}", clazz.getSimpleName(), id, temp);
         } catch (Exception e) {
-            e.printStackTrace();
-            String message = String.format("Can't Convert <%s> to <%s>, Cause: %s", id, clazz.getSimpleName(), e.getMessage());
-            logger.error(message);
-            throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_WARN, message, message));
+            logger.error("To {}: {} -> {}\n{}", clazz.getSimpleName(), id, temp, e.getMessage());
+        } finally {
+            return temp;
         }
     }
 
     @Override
+    @Transactional
     public String getAsString(FacesContext context, UIComponent component, T item) {
-        logger.trace("getAsObject: {}", item);
-
-        if (item == null) {
-            return "";
-        }
-
+        String asString = "";
         try {
-            logger.trace("To String {} -> {}", clazz.getSimpleName(), item.getId());
-            return item.getId();
+            asString = item.getId();
+            logger.trace("{} To String {} -> {}", clazz.getSimpleName(), item, asString);
         } catch (Exception e) {
-            e.printStackTrace();
-            String message = String.format("Can't Convert <%s> to String, Cause: %s", item, e.getMessage());
-            logger.error(message);
-            throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_WARN, message, message));
+            logger.error("{} To String {} -> {}\n{}", clazz.getSimpleName(), item, asString,
+                    e.getMessage());
+        } finally {
+            return asString;
         }
     }
 }
